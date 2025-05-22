@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crypto Tracker & Analysis Engine</title>
+  <!-- Bootstrap CSS for modern styling -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container mt-5">
+    <header class="text-center">
+      <h1>Crypto Tracker & Analysis Engine</h1>
+      <!-- Attractive banner from Pexels -->
+      <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Market Trends" class="img-fluid rounded" />
+    </header>
+    <section class="mt-4">
+      <h3>Live Price Graph</h3>
+      <canvas id="priceChart" width="400" height="200"></canvas>
+    </section>
+    <section class="mt-4">
+      <h3>Select Cryptocurrencies to Track</h3>
+      <form id="coinSelectionForm">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="BTC" id="coinBTC" checked>
+          <label class="form-check-label" for="coinBTC">Bitcoin (BTC)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="ETH" id="coinETH" checked>
+          <label class="form-check-label" for="coinETH">Ethereum (ETH)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="LTC" id="coinLTC" checked>
+          <label class="form-check-label" for="coinLTC">Litecoin (LTC)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="DOGE" id="coinDOGE" checked>
+          <label class="form-check-label" for="coinDOGE">Dogecoin (DOGE)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="SHIB" id="coinSHIB" checked>
+          <label class="form-check-label" for="coinSHIB">Shiba Inu (SHIB)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="MATIC" id="coinMATIC" checked>
+          <label class="form-check-label" for="coinMATIC">Polygon (MATIC)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="LINK" id="coinLINK" checked>
+          <label class="form-check-label" for="coinLINK">Chainlink (LINK)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="AAVE" id="coinAAVE" checked>
+          <label class="form-check-label" for="coinAAVE">Aave (AAVE)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="GRT" id="coinGRT" checked>
+          <label class="form-check-label" for="coinGRT">The Graph (GRT)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="SAND" id="coinSAND" checked>
+          <label class="form-check-label" for="coinSAND">The Sandbox (SAND)</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Update Chart</button>
+      </form>
+    </section>
+    <section class="mt-4">
+      <h3>Upload Graph Image for Technical Analysis</h3>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <input type="file" class="form-control-file" id="graphImage" name="graphImage" accept="image/*" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze Image</button>
+      </form>
+    </section>
+    <section class="mt-4">
+      <h3>Analysis Result</h3>
+      <pre id="result" class="bg-light p-3"></pre>
+    </section>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
