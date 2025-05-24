@@ -40,7 +40,7 @@ The server listens on port `3000` by default.
 
 ## Running Tests
 
-Unit tests are executed with Jest:
+Unit tests are executed with Node's built-in test runner:
 
 ```bash
 npm test
