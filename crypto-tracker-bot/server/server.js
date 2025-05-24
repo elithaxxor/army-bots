@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
 const imageAnalysis = require('../technicalIndicators/imageAnalysis');
@@ -9,6 +10,9 @@ const app = express();
 const port = 3000;
 
 // Multer setup for image uploads
+// Ensure uploads directory exists
+fs.mkdirSync('uploads', { recursive: true });
+
 const upload = multer({
   storage: multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'uploads/'),
@@ -19,7 +23,6 @@ const upload = multer({
 // Serve static files from the client folder
 app.use(express.static(path.join(__dirname, '../client')));
 
-const imageAnalysis = require('../technicalIndicators/imageAnalysis');
 const sentimentAnalysis = require('../technicalIndicators/sentimentAnalysis');
 const chatGPT = require('../technicalIndicators/chatGPT');
 

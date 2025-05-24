@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const notificationLeft = document.getElementById('notification-left');
   const notificationRight = document.getElementById('notification-right');
   const ticker = document.getElementById('ticker');
-        ` `
   // Initialize TradingView widget
   new TradingView.widget({
     container_id: "tradingview_chart",
@@ -63,13 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     tickerIndex++;
   }
 
-  setInterval(() => {
-    updateLiveData();
-  }, 10000);
-
-  setInterval(() => {
-    updateTicker();
-  }, 3000);
 
   // Toggle views
   toAnalysisBtn.addEventListener('click', () => {
