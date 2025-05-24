@@ -5,7 +5,4 @@
     "express": "^5.1.0",
     "multer": "^2.0.0"
   },
-  "devDependencies": {
-    "jest": "^29.7.0"
-  }
-}
+
