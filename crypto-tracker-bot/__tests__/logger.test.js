@@ -1,10 +1,12 @@
+const assert = require('assert');
+const test = require('node:test');
 const logger = require('../utils/logger');
 
-describe('logger', () => {
-  it('logs info messages', () => {
-    const spy = jest.spyOn(console, 'log').mockImplementation(() => {});
-    logger.info('hello');
-    expect(spy).toHaveBeenCalled();
-    spy.mockRestore();
-  });
+test('logger.info logs messages', () => {
+  const logged = [];
+  const original = console.log;
+  console.log = (...args) => logged.push(args);
+  logger.info('hello');
+  console.log = original;
+  assert(logged.length > 0);
 });
