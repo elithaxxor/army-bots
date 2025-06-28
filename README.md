@@ -65,6 +65,17 @@ python trading_bot/telegram_bot.py
 Within Telegram you can issue `/buy`, `/sell`, and `/simulate_backtest` commands
 to trigger actions.
 
+To execute trades from Telegram, use the separate `telegram_exec.py` script with
+a comma-separated list of authorised IDs:
+
+```bash
+export TELEGRAM_BOT_TOKEN=YOUR_TOKEN
+export TELEGRAM_USER_IDS=123456789,987654321
+python trading_bot/telegram_exec.py
+```
+
+Provide `BINANCE_API_KEY` and `BINANCE_API_SECRET` to send orders to Binance; otherwise trades are only simulated.
+
 ## Running Tests
 
 ### Node
