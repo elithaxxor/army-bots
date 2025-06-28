@@ -1,3 +1,11 @@
+/**
+ * Lightweight wrapper around Axios used to track request metrics.
+ *
+ * Each request updates global counters for latency and error counts
+ * and logs any calls that exceed the configured threshold. These
+ * metrics are later exposed through the `/api/health` endpoint so the
+ * dashboard can monitor the health of outbound API calls.
+ */
 const axios = require('axios');
 const logger = require('./logger');
 
