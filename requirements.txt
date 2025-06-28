@@ -6,3 +6,4 @@ scikit-learn
 streamlit
 plotly
 transformers
+python-telegram-bot

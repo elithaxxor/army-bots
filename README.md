@@ -46,15 +46,25 @@ pip install -r requirements.txt
   ./auto_install_and_run.sh
   ```
 
-## Running Tests
+## Telegram Bot
 
-### Node Tests
+The dashboard includes a simple Telegram bot. Configure a bot token and the
+allowed user ID then run the script:
 
-Install dependencies in the bot directory then run the suite:
+```bash
+export TELEGRAM_BOT_TOKEN=YOUR_TOKEN
+export TELEGRAM_USER_ID=123456789
+python trading_bot/telegram_bot.py
+```
+
+Within Telegram you can issue `/buy`, `/sell`, and `/simulate_backtest` commands
+to trigger actions.
+
 ## Running Tests
 
 ### Node
-Run all Jest tests from `crypto-tracker-bot`:
+
+Install dependencies in the bot directory then run the Jest suite:
 
 ```bash
 cd crypto-tracker-bot
@@ -62,27 +72,15 @@ npm install
 npm test
 ```
 
-### Python Tests
-
-Before running the Python tests, create and activate a virtual environment then install the requirements:
-```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-After the dependencies are installed, execute the suite:
-
-
-Install the Python requirements and execute the tests from the repository root:
 ### Python
-Run the dashboard tests from the repository root:
+
+Install the Python requirements (a virtual environment is recommended) and run the dashboard tests from the repository root:
 
 ```bash
 pip install -r requirements.txt
-pytest
+PYTHONPATH=. pytest trading_bot/tests
 ```
 
-Both suites should pass once the dependencies are installed.
 Both suites should pass once their dependencies are installed.
 
 ## Directory Overview
