@@ -45,3 +45,9 @@ Contributions and suggestions are welcome.
 
 
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+
+### Additional Enhancements
+
+- **Order Book Visualisation**: Display real-time depth charts so users can monitor liquidity changes.
+- **Strategy Explorer**: Provide a sandbox to test various machine learning models and compare their performance.
+- **Telegram Execution Bot**: Allow trades to be triggered via secure Telegram commands for convenience.
