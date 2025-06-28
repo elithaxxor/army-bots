@@ -50,3 +50,10 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+
+## Further Feature Ideas
+
+- **Integrated Backtesting UI**: Provide a graphical interface where users can configure strategies and visualize backtest results directly in the dashboard.
+- **Cloud Deployment Templates**: Offer Terraform or Docker Compose examples so the entire stack can be deployed easily to cloud providers.
+- **User Accounts & Permissions**: Add optional authentication with role-based permissions to restrict access to trading features.
+- **Automated Parameter Tuning**: Leverage optimization libraries to search over strategy parameters for the best historical performance.

@@ -90,3 +90,17 @@ streamlit run trading_bot/app.py
 ```
 
 The dashboard fetches real-time market data, displays technical analysis, sentiment, and a simple machine learning signal. You can also run a backtest from the sidebar.
+
+## Running Tests
+
+Python unit tests are located under `trading_bot/tests`. Before executing them, install the required Python dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Then run the test suite from the repository root:
+
+```bash
+PYTHONPATH=. pytest
+```
