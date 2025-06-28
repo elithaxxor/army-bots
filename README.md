@@ -102,7 +102,13 @@ npm test
 ```
 
 ### Python Tests
-Activate your environment and execute:
+Before running the Python tests, create and activate a virtual environment then install the requirements:
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+After the dependencies are installed, execute the suite:
 ```bash
 PYTHONPATH=. pytest
 ```
