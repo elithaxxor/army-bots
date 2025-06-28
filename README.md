@@ -48,13 +48,9 @@ pip install -r requirements.txt
 
 ## Running Tests
 
-### Node Tests
-
-Install dependencies in the bot directory then run the suite:
-## Running Tests
-
 ### Node
-Run all Jest tests from `crypto-tracker-bot`:
+
+Install dependencies in the bot directory, then run the test suite:
 
 ```bash
 cd crypto-tracker-bot
@@ -62,27 +58,17 @@ npm install
 npm test
 ```
 
-### Python Tests
+### Python
 
-Before running the Python tests, create and activate a virtual environment then install the requirements:
+Create a virtual environment, install the requirements, and execute the tests:
+
 ```bash
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-```
-After the dependencies are installed, execute the suite:
-
-
-Install the Python requirements and execute the tests from the repository root:
-### Python
-Run the dashboard tests from the repository root:
-
-```bash
-pip install -r requirements.txt
 pytest
 ```
 
-Both suites should pass once the dependencies are installed.
 Both suites should pass once their dependencies are installed.
 
 ## Directory Overview
