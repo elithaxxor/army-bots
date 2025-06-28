@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <!-- Chart.js via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- TradingView widget library -->
+
   <script src="https://s3.tradingview.com/tv.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -23,6 +26,7 @@
       <section class="mt-4">
         <h3>Live Price Graph</h3>
         <canvas id="priceChart" width="400" height="200"></canvas>
+        <div id="tradingview_chart" class="mt-4"></div>
       </section>
     <section class="mt-4">
       <h3>Select Cryptocurrencies to Track</h3>
