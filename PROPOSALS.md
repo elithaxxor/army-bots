@@ -124,6 +124,7 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Telegram Execution Bot**: Allow trades to be triggered via secure Telegram commands for convenience.
 - **Automated Risk Controls**: Implement dynamic stop-loss and take-profit mechanisms that adapt to market volatility.
 
+
 ### More Complementary Features
 
 - **Multi-Exchange Support**: Aggregate prices and execute trades across several exchanges for better liquidity.
