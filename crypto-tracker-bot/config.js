@@ -11,7 +11,7 @@ module.exports = {
   slackWebhookUrl: process.env.SLACK_WEBHOOK_URL,
   chatGPTApiKey: process.env.CHATGPT_API_KEY,
   tiingoApiKey: process.env.TIINGO_API_KEY,
-  cryptoPanickApiKey: process.env.CRYPTOPANICK_API_KEY,
+  cryptoPanickApiKey: process.env.CRYPTO_PANICK_API_KEY,
   marketeuxApiKey: process.env.MARKETEUX_API_KEY,
   alphaVantageApiKey: process.env.ALPHA_VANTAGE_API_KEY,
   priceMovementThreshold: parseFloat(process.env.PRICE_MOVEMENT_THRESHOLD) || 5,
@@ -19,8 +19,4 @@ module.exports = {
   storageInterval: parseInt(process.env.STORAGE_INTERVAL) || 300000,
   googleCloudProjectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
   googleCloudAccessToken: process.env.GOOGLE_CLOUD_ACCESS_TOKEN,
-  tiingoApiKey: process.env.TIINGO_API_KEY,
-  cryptoPanickApiKey: process.env.CRYPTO_PANICK_API_KEY,
-  marketeuxApiKey: process.env.MARKETEUX_API_KEY,
-  alphaVantageApiKey: process.env.ALPHAVANTAGE_API_KEY,
 };
