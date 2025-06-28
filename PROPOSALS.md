@@ -50,3 +50,11 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+
+### Proposed Enhancements
+
+- **Real-Time Data Streaming**: Leverage WebSocket connections for faster market updates instead of relying solely on REST polling.
+- **Pluggable Strategies**: Provide a base strategy interface so users can drop in custom Python modules without modifying core files.
+- **Backtest Report Generation**: Output performance metrics and plots after running the backtester for easier analysis.
+- **Containerized Deployment**: Offer Dockerfiles for both the Python dashboard and Node services to simplify installation.
+- **Mobile Notifications**: Integrate with push services like Pushover or Pushbullet to deliver alerts directly to smartphones.

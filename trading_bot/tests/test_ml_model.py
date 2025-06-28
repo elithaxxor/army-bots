@@ -1,5 +1,10 @@
+import sys
+import os
 import pandas as pd
 import numpy as np
+
+# Make sure the trading_bot package is importable when running tests from repo root
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 from trading_bot.ml_model import PriceDirectionModel
 
 def test_model_train_predict():

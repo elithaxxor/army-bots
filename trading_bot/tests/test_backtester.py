@@ -1,4 +1,9 @@
+import sys
+import os
 import pandas as pd
+
+# Ensure imports work when running tests from the repository root
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 from trading_bot.backtester import backtest
 
 def test_backtest_returns_balance():
