@@ -13,5 +13,7 @@ Contributions and suggestions are welcome.
 
 - **Webhook Notifications**: Send trade alerts and model signals via email or messaging platforms.
 - **Docker Deployment**: Provide a container image for easier setup on various systems.
+- **Expanded Alerts**: Allow configuration of multiple Telegram chats and Discord channels.
+- **Historical Analysis**: Store long-term price data for deeper trend exploration.
 
 
