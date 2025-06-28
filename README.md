@@ -26,7 +26,7 @@ pip install -r requirements.txt
 - `npm run server` – launch the optional analysis server
 - `auto_install_and_run.sh` – install Node modules and run both the bot and server
 - `streamlit run trading_bot/app.py` – start the trading dashboard
-- `streamlit run trading_bot/strategy_explorer.py` – explore ML models on historical data
+- `streamlit run trading_bot/strategy_explorer.py` – explore ML models and view cross-validated performance
 
 ## Running
 
@@ -42,12 +42,13 @@ pip install -r requirements.txt
   ```bash
   streamlit run trading_bot/app.py
   ```
-- **Run the strategy explorer:**
+ - **Run the strategy explorer:**
   ```bash
   streamlit run trading_bot/strategy_explorer.py
   ```
-  This page supports hyperparameter tuning, feature-importance charts,
-  and persists evaluation results for later review.
+  This page supports hyperparameter tuning, cross‑validated accuracy,
+  feature-importance charts, and persists evaluation results for later
+  review.
 
 - **Quick start both bot and server:**
   ```bash
@@ -129,16 +130,17 @@ requirements.txt      # Python dependencies
 ## Custom Strategies
 
 The backtester accepts any strategy class located in `trading_bot/strategies/`.
-Create a module in that folder and subclass `Strategy`:
+Create a module in that folder and subclass :class:`Strategy`:
 
 ```python
 from trading_bot.strategies.base import Strategy
 import pandas as pd
 
 class MyStrategy(Strategy):
-    def generate_signals(self, df: pd.DataFrame) -> float:
-        # Implement trading logic and return a final balance
-        return 1.0
+    def generate_signals(self, df: pd.DataFrame) -> pd.Series:
+        """Generate an equity curve from ``df``."""
+
+        return pd.Series([1.0] * len(df), index=df.index)
 
 ```
 

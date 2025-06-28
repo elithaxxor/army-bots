@@ -1,5 +1,12 @@
 /**
+
  * HTTP server exposing analysis endpoints and streaming price updates.
+
+ * Express server exposing analysis and monitoring endpoints for the
+ * crypto tracker bot. It accepts uploaded chart images, proxies
+ * OpenAI requests via the apiMonitor wrapper, and streams stored
+ * price updates over WebSockets.
+
  */
 const express = require('express');
 const fs = require('fs');
