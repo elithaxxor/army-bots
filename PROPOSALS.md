@@ -196,3 +196,8 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Health Check Endpoint**: Add a simple `/ping` route that returns a 200 status for container orchestrators.
 - **Graceful Shutdown**: Handle SIGTERM and SIGINT signals to close open connections cleanly before exiting.
 
+### Dashboard Multi-Asset View
+
+- **Tabbed Charts**: Display multiple trading pairs at once using tabs to quickly compare assets.
+- **Cached Indicator Data**: Reuse indicator calculations between refreshes to minimise API usage.
+
