@@ -12,9 +12,10 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
     adx = ta.adx(df["high"], df["low"], df["close"], length=14)
     if isinstance(adx, pd.DataFrame) and "ADX_14" in adx:
         df["adx"] = adx["ADX_14"]
+    elif isinstance(adx, (pd.Series, list)):
+        df["adx"] = adx
     else:
         df["adx"] = pd.NA
-    df["adx"] = ta.adx(df["high"], df["low"], df["close"], length=14)["ADX_14"]
     df["ema"] = ta.ema(df["close"], length=20)
     df["sma"] = ta.sma(df["close"], length=20)
 
