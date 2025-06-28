@@ -155,7 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const enhancedSentimentData = await enhancedSentimentRes.json();
 
       // Display text analysis
-      document.getElementById('sentiment-text').textContent = sentimentData.sentimentAnalysis || 'No sentiment data';
+      const sentimentEl = document.getElementById('sentiment-text');
+      sentimentEl.textContent = '';
+      sentimentEl.append(document.createTextNode(sentimentData.sentimentAnalysis || 'No sentiment data'));
       document.getElementById('technical-text').textContent = technicalData.technicalAnalysis || 'No technical data';
 
       // Display enhanced sentiment analysis text
@@ -163,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
       enhancedSentimentDiv.textContent = enhancedSentimentData.enhancedSentimentAnalysis || 'No enhanced sentiment data';
       enhancedSentimentDiv.style.marginTop = '1em';
       enhancedSentimentDiv.style.fontWeight = 'bold';
-      document.getElementById('sentiment-text').appendChild(enhancedSentimentDiv);
+      sentimentEl.appendChild(enhancedSentimentDiv);
 
       // Render graphical sentiment and technical indicators
       updateSentimentChart(sentimentData.sentimentAnalysis);
