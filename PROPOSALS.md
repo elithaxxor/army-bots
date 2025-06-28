@@ -50,3 +50,9 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+
+### Additional Crypto Tracker Enhancements
+
+- **Arbitrage Alerts**: Detect cross-exchange price discrepancies and notify users when profitable opportunities arise.
+- **Machine Learning Forecasts**: Implement lightweight models to predict short-term price movement using historical data.
+- **Advanced Notification Routing**: Allow configuration of channel-specific filters so users can route critical alerts to SMS while keeping general updates on Slack or Discord.
