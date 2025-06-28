@@ -41,11 +41,12 @@ The server listens on port `3000` by default.
 
 ## Running Tests
 
-Unit tests are executed with Jest:
+This project uses Node's built-in test runner. The `npm test` command simply
+executes `node --test=__tests__`:
 
 ```bash
 npm test
 ```
 
-Ensure dependencies are installed before running tests.
+Make sure dependencies are installed before running tests.
 
