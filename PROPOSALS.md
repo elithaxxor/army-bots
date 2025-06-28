@@ -31,3 +31,4 @@ Contributions and suggestions are welcome.
 - **Trend Alerts**: Notify users when a coin moves beyond a configurable threshold.
 - **Web Dashboard**: Add a simple interface to view current prices and recent news.
 
+- **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
