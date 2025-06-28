@@ -13,7 +13,7 @@ const apiMonitor = require('../utils/apiMonitor');
 storage.initDatabase();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const httpServer = http.createServer(app);
 const io = new Server(httpServer);
 
