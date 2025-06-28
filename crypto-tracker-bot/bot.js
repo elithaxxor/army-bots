@@ -4,6 +4,7 @@ const newsTracker = require('./monitoring/newsTracker');
 const discordNotifier = require('./notifier/discordNotifier');
 const telegramNotifier = require('./notifier/telegramNotifier');
 const slackNotifier = require('./notifier/slackNotifier');
+const pushoverNotifier = require('./notifier/pushoverNotifier');
 const storage = require('./persist/storage');
 const logger = require('./utils/logger');
 const sentimentAnalysis = require('./technicalIndicators/sentimentAnalysis');
@@ -42,6 +43,7 @@ async function checkPrices() {
         await discordNotifier.sendDiscordMessage(message);
         await telegramNotifier.sendTelegramMessage(message);
         await slackNotifier.sendSlackMessage(message);
+        await pushoverNotifier.sendPushoverMessage(message);
         logger.info(`Notification sent for ${symbol}`);
 
         const sentimentResult = await sentimentAnalysis.analyzeData({ symbol, currentPrice, changePercent, changeDollar });
@@ -59,6 +61,7 @@ async function checkPrices() {
           await discordNotifier.sendDiscordMessage(trendMsg);
           await telegramNotifier.sendTelegramMessage(trendMsg);
           await slackNotifier.sendSlackMessage(trendMsg);
+          await pushoverNotifier.sendPushoverMessage(trendMsg);
         }
       }
       previousPrices[symbol] = currentPrice;

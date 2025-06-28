@@ -20,6 +20,8 @@ const {
   STORAGE_INTERVAL,
   GOOGLE_CLOUD_PROJECT_ID,
   GOOGLE_CLOUD_ACCESS_TOKEN,
+  PUSHOVER_TOKEN,
+  PUSHOVER_USER_KEY,
 } = process.env;
 
 module.exports = {
@@ -43,4 +45,6 @@ module.exports = {
   storageInterval: parseInt(STORAGE_INTERVAL) || 300000,
   googleCloudProjectId: GOOGLE_CLOUD_PROJECT_ID,
   googleCloudAccessToken: GOOGLE_CLOUD_ACCESS_TOKEN,
+  pushoverToken: PUSHOVER_TOKEN,
+  pushoverUserKey: PUSHOVER_USER_KEY,
 };

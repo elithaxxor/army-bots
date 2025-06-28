@@ -5,11 +5,18 @@ This module provides a basic backtester capable of evaluating a trading
 statistics and optionally saves a JSON report and an equity curve plot.
 """
 
+"""Simple backtesting framework for evaluating trading strategies."""
+"""Simple backtester used for evaluating strategies."""
+
+
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
 import json
+
+
+
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -18,6 +25,7 @@ from trading_bot.risk import add_stop_levels
 
 
 class SimpleStrategy(Strategy):
+
     """Minimal example strategy used by the backtester."""
 
     def generate_signals(self, df: pd.DataFrame) -> tuple[pd.Series, int]:
@@ -36,11 +44,39 @@ class SimpleStrategy(Strategy):
 
         for _, row in df.iterrows():
             if not position:
+
+    """Baseline strategy using VWAP and RSI crosses with dynamic stops."""
+
+    def generate_signals(self, df: pd.DataFrame) -> pd.Series:
+        """Return an equity curve for ``df`` using a basic trading logic."""
+
+        df = add_stop_levels(df)
+        position = 0.0
+        balance = 1.0
+        equity = []
+        stop_loss = take_profit = None
+
+        for _, row in df.iterrows():
+            if not position:
+    """Reimplements the original trading logic and returns an equity curve."""
+
+    def generate_signals(self, df: pd.DataFrame) -> pd.Series:
+        df = add_stop_levels(df)
+        position = 0.0
+        balance = 1.0
+        stop_loss = None
+        take_profit = None
+        equity = []
+
+        for _, row in df.iterrows():
+            if position == 0.0:
+
                 if row["close"] > row["vwap"] and row["rsi"] < 30:
                     position = balance / row["close"]
                     balance = 0.0
                     stop_loss = row["stop_loss"]
                     take_profit = row["take_profit"]
+
                     trades += 1
             else:
                 if row["close"] >= take_profit or row["close"] <= stop_loss:
@@ -54,18 +90,36 @@ class SimpleStrategy(Strategy):
                 else:
                     stop_loss = row["stop_loss"]
                     take_profit = row["take_profit"]
+
+            else:
+                if row["close"] <= stop_loss or row["close"] >= take_profit:
+                    balance = position * row["close"]
+                    position = 0.0
+                elif row["close"] < row["vwap"] or row["rsi"] > 70:
+                    balance = position * row["close"]
+                    position = 0.0
+
+
             equity.append(balance + position * row["close"])
 
         if position:
             balance = position * df.iloc[-1]["close"]
             equity[-1] = balance
 
+
         return pd.Series(equity, index=df.index[: len(equity)]), trades
+
+        return pd.Series(equity, index=df.index[: len(equity)])
+
 
 
 @dataclass
 class BacktestReport:
+
     """Container for backtest results."""
+
+    """Results produced by :func:`backtest`."""
+
 
     final_balance: float
     profit: float
