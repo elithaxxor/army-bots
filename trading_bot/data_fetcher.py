@@ -1,6 +1,10 @@
+"""Utility helpers for retrieving OHLCV data from exchanges."""
+
+from concurrent.futures import ThreadPoolExecutor
+from typing import Dict, List
+
 import ccxt
 import pandas as pd
-from datetime import datetime
 
 class DataFetcher:
     """Fetches market data from Binance via ccxt."""
@@ -26,10 +30,14 @@ class DataFetcher:
         return df
 
     def get_ohlcv_multi(
-        self, symbols: list[str], timeframe: str = "1m", limit: int = 200
-    ) -> dict[str, pd.DataFrame]:
-        """Fetch OHLCV data for multiple symbols."""
-        data = {}
-        for sym in symbols:
-            data[sym] = self.get_ohlcv(sym, timeframe=timeframe, limit=limit)
-        return data
+        self, symbols: List[str], timeframe: str = "1m", limit: int = 200
+    ) -> Dict[str, pd.DataFrame]:
+        """Fetch OHLCV data for multiple symbols concurrently."""
+
+        def fetch(sym: str) -> pd.DataFrame:
+            return self.get_ohlcv(sym, timeframe=timeframe, limit=limit)
+
+        with ThreadPoolExecutor(max_workers=min(len(symbols), 5)) as executor:
+            results = list(executor.map(fetch, symbols))
+
+        return dict(zip(symbols, results))

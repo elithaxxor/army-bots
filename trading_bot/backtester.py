@@ -1,4 +1,5 @@
 """Simple backtesting framework for evaluating trading strategies."""
+"""Simple backtester used for evaluating strategies."""
 
 from dataclasses import dataclass
 from pathlib import Path
@@ -27,6 +28,18 @@ class SimpleStrategy(Strategy):
 
         for _, row in df.iterrows():
             if not position:
+    """Reimplements the original trading logic and returns an equity curve."""
+
+    def generate_signals(self, df: pd.DataFrame) -> pd.Series:
+        df = add_stop_levels(df)
+        position = 0.0
+        balance = 1.0
+        stop_loss = None
+        take_profit = None
+        equity = []
+
+        for _, row in df.iterrows():
+            if position == 0.0:
                 if row["close"] > row["vwap"] and row["rsi"] < 30:
                     position = balance / row["close"]
                     balance = 0.0
