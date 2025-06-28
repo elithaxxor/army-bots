@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Price Demo</title>
+</head>
+<body>
+  <h1>Live Prices</h1>
+  <pre id="prices">Connecting...</pre>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const output = document.getElementById('prices');
+    const socket = io();
+    socket.on('prices', payload => {
+      const data = payload.data || payload;
+      output.textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>

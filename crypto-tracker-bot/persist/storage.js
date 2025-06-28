@@ -1,6 +1,9 @@
 const path = require('path');
 const Database = require('better-sqlite3');
+const EventEmitter = require('events');
 const logger = require('../utils/logger');
+
+const emitter = new EventEmitter();
 
 let db;
 
@@ -22,6 +25,7 @@ function insertPriceHistory(prices) {
     const database = initDatabase();
     const stmt = database.prepare('INSERT INTO price_history (timestamp, prices) VALUES (?, ?)');
     stmt.run(new Date().toISOString(), JSON.stringify(prices));
+    emitter.emit('insert', prices);
   } catch (error) {
     logger.error('Failed to insert price history:', error);
     throw error;
@@ -70,4 +74,5 @@ module.exports = {
   getPriceHistory,
   getLatestPrice,
   getPriceBefore,
+  emitter,
 };

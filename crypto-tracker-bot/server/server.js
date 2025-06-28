@@ -22,6 +22,15 @@ io.on('connection', () => {
   logger.info('Socket.IO client connected');
 });
 
+// Forward new price inserts to all clients in real time
+storage.emitter.on('insert', (prices) => {
+  try {
+    io.emit('prices', { data: prices });
+  } catch (error) {
+    logger.error('Error emitting prices from storage:', error);
+  }
+});
+
 // Multer setup for image uploads
 // Ensure uploads directory exists
 fs.mkdirSync('uploads', { recursive: true });
