@@ -67,3 +67,25 @@ user-workspace/
 ---
 
 For any additional questions or issues, please feel free to open an issue or contact the maintainers of this repository.
+
+## Python Trading Dashboard
+
+A Python-based crypto trading dashboard is provided under `trading_bot/`. It uses `ccxt` to fetch data, calculates technical indicators, and displays an interactive web interface using Streamlit.
+
+### Setup
+
+Install Python dependencies (preferably in a virtual environment):
+
+```bash
+pip install -r requirements.txt
+```
+
+### Running the Dashboard
+
+From the repository root, execute:
+
+```bash
+streamlit run trading_bot/app.py
+```
+
+The dashboard fetches real-time market data, displays technical analysis, sentiment, and a simple machine learning signal. You can also run a backtest from the sidebar.
