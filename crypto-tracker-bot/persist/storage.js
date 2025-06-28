@@ -51,4 +51,23 @@ function getLatestPrice() {
   }
 }
 
-module.exports = { initDatabase, insertPriceHistory, getPriceHistory, getLatestPrice };
+function getPriceBefore(date) {
+  try {
+    const database = initDatabase();
+    const row = database.prepare(
+      'SELECT prices FROM price_history WHERE timestamp <= ? ORDER BY timestamp DESC LIMIT 1'
+    ).get(date.toISOString());
+    return row ? JSON.parse(row.prices) : null;
+  } catch (error) {
+    logger.error('Failed to read price before:', error);
+    throw error;
+  }
+}
+
+module.exports = {
+  initDatabase,
+  insertPriceHistory,
+  getPriceHistory,
+  getLatestPrice,
+  getPriceBefore,
+};

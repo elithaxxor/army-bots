@@ -164,3 +164,9 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Integrated Price Alerts**: Let users configure threshold alerts that are sent instantly to the client via Socket.IO or push notifications.
 - **Customizable Dashboards**: Allow draggable widgets for charts, order books, and news so each trader can design their own layout.
 - **Live Strategy Backtesting**: Continuously evaluate trading strategies against the streaming data to display hypothetical performance.
+
+## Proposed Trend Features
+
+- **Multi-Window Trend Alerts**: Notify users when price changes over 1h, 4h, or 24h exceed configurable thresholds.
+- **Trend Dashboard Widgets**: Display sparkline charts summarising short and long term trends.
+- **Historical Trend API**: Provide endpoints to query past trend alerts for backtesting and research.

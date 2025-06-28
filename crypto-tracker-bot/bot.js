@@ -47,6 +47,20 @@ async function checkPrices() {
         const sentimentResult = await sentimentAnalysis.analyzeData({ symbol, currentPrice, changePercent, changeDollar });
         logger.info(`Sentiment Analysis for ${symbol}: ${sentimentResult}`);
       }
+
+      // trend alert based on longer window
+      const trendDate = new Date(Date.now() - config.trendWindowHours * 60 * 60 * 1000);
+      const historicalPrices = storage.getPriceBefore(trendDate);
+      if (historicalPrices && historicalPrices[symbol] != null) {
+        const pastPrice = historicalPrices[symbol];
+        const trendChange = ((currentPrice - pastPrice) / pastPrice) * 100;
+        if (Math.abs(trendChange) >= config.trendThreshold) {
+          const trendMsg = `${symbol} moved ${trendChange.toFixed(2)}% in the last ${config.trendWindowHours}h.`;
+          await discordNotifier.sendDiscordMessage(trendMsg);
+          await telegramNotifier.sendTelegramMessage(trendMsg);
+          await slackNotifier.sendSlackMessage(trendMsg);
+        }
+      }
       previousPrices[symbol] = currentPrice;
     }
     storage.insertPriceHistory(prices);

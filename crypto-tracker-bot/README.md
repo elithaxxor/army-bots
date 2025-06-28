@@ -19,6 +19,8 @@ Set the following variables in a `.env` file inside `crypto-tracker-bot/`:
 - `MARKETEUX_API_KEY` – Marketeux API key for curated articles
 - `ALPHA_VANTAGE_API_KEY` – Alpha Vantage API key for sentiment feed
 - `PRICE_MOVEMENT_THRESHOLD` – Default percent change that triggers alerts (optional)
+- `TREND_THRESHOLD` – Percent change over the trend window required for trend alerts (optional)
+- `TREND_WINDOW_HOURS` – Number of hours used to calculate trend percentage (optional)
 - `POLL_INTERVAL` – How often prices are fetched in milliseconds (optional)
 - `STORAGE_INTERVAL` – Interval for persisting price history in milliseconds (optional)
 - `GOOGLE_CLOUD_PROJECT_ID` – Google Cloud project ID used by Vertex AI

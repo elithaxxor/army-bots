@@ -15,6 +15,8 @@ module.exports = {
   marketeuxApiKey: process.env.MARKETEUX_API_KEY,
   alphaVantageApiKey: process.env.ALPHA_VANTAGE_API_KEY,
   priceMovementThreshold: parseFloat(process.env.PRICE_MOVEMENT_THRESHOLD) || 5,
+  trendThreshold: parseFloat(process.env.TREND_THRESHOLD) || 10,
+  trendWindowHours: parseInt(process.env.TREND_WINDOW_HOURS) || 24,
   pollInterval: parseInt(process.env.POLL_INTERVAL) || 60000,
   storageInterval: parseInt(process.env.STORAGE_INTERVAL) || 300000,
   googleCloudProjectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
