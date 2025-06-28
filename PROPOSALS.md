@@ -52,6 +52,8 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+- **Social Media Monitoring**: Incorporate trending data from Twitter and Reddit to enrich sentiment analysis.
+- **Automated Backtesting**: Evaluate trading strategies on historical data to gauge expected performance.
 
 ### Proposed Enhancements
 
