@@ -94,4 +94,29 @@ auto_install_and_run.sh
 requirements.txt      # Python dependencies
 ```
 
+## Custom Strategies
+
+The backtester accepts any strategy class located in `trading_bot/strategies/`.
+Create a module in that folder and subclass `Strategy`:
+
+```python
+from trading_bot.strategies.base import Strategy
+import pandas as pd
+
+class MyStrategy(Strategy):
+    def generate_signals(self, df: pd.DataFrame) -> float:
+        # Implement trading logic and return a final balance
+        return 1.0
+
+```
+
+Run the backtest with your strategy:
+
+```python
+from trading_bot.backtester import backtest
+from trading_bot.strategies.my_strategy import MyStrategy
+
+result = backtest(df, strategy=MyStrategy())
+```
+
 For more feature ideas, see `PROPOSALS.md`.
