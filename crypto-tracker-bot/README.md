@@ -14,6 +14,8 @@ Set the following variables in a `.env` file inside `crypto-tracker-bot/`:
 - `TELEGRAM_BOT_TOKEN` – Telegram bot token used to send messages
 - `TELEGRAM_CHAT_ID` – Telegram chat ID where messages will be sent. Set this to the desired chat or channel ID.
 - `SLACK_WEBHOOK_URL` – Slack webhook URL for alerts
+- `PUSHOVER_TOKEN` – Pushover application token used for notifications
+- `PUSHOVER_USER_KEY` – Pushover user key to deliver messages
 - `TIINGO_API_KEY` – Tiingo API token for additional news data
 - `CRYPTO_PANICK_API_KEY` – API key for CryptoPanick news
 - `MARKETEUX_API_KEY` – Marketeux API key for curated articles
@@ -26,6 +28,13 @@ Set the following variables in a `.env` file inside `crypto-tracker-bot/`:
 - `GOOGLE_CLOUD_PROJECT_ID` – Google Cloud project ID used by Vertex AI
 - `GOOGLE_CLOUD_ACCESS_TOKEN` – Access token for the Google Cloud Vertex API
 - `PORT` – Port where the optional server listens (defaults to `3000`)
+
+### Pushover Notifications
+
+1. Create an account at [Pushover](https://pushover.net/) and create a new application.
+2. Note the application token and your user key.
+3. Add `PUSHOVER_TOKEN` and `PUSHOVER_USER_KEY` to the `.env` file.
+4. Restart the bot to enable Pushover alerts.
 
 ## Running the Bot
 
