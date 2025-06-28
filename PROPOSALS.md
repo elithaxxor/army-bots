@@ -160,3 +160,7 @@ To further enhance the toolkit, the following ideas could be explored:
 - **User-Configurable Streams**: Allow clients to subscribe only to the coins they care about to reduce bandwidth usage.
 - **Historical Snapshot Service**: Periodically archive real-time data into static JSON files for quick offline review.
 - **Alert WebSockets**: Broadcast threshold alerts over Socket.IO so the dashboard can display pop-up notifications in real time.
+- **Real-Time Order Book Visualization**: Show live bid/ask depth so traders can gauge market liquidity.
+- **Integrated Price Alerts**: Let users configure threshold alerts that are sent instantly to the client via Socket.IO or push notifications.
+- **Customizable Dashboards**: Allow draggable widgets for charts, order books, and news so each trader can design their own layout.
+- **Live Strategy Backtesting**: Continuously evaluate trading strategies against the streaming data to display hypothetical performance.
