@@ -1,3 +1,7 @@
+"""Utility functions for calculating common technical indicators."""
+
+from __future__ import annotations
+
 import pandas as pd
 import pandas_ta as ta
 
@@ -16,6 +20,10 @@ def add_indicators(df: pd.DataFrame) -> pd.DataFrame:
         df["adx"] = adx
     else:
         df["adx"] = pd.NA
+    macd = ta.macd(df["close"], fast=12, slow=26, signal=9)
+    if isinstance(macd, pd.DataFrame):
+        df["macd"] = macd.iloc[:, 0]
+        df["macd_signal"] = macd.iloc[:, 1]
     df["ema"] = ta.ema(df["close"], length=20)
     df["sma"] = ta.sma(df["close"], length=20)
 
