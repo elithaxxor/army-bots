@@ -24,3 +24,12 @@ class DataFetcher:
         )
         df["timestamp"] = pd.to_datetime(df["timestamp"], unit="ms")
         return df
+
+    def get_ohlcv_multi(
+        self, symbols: list[str], timeframe: str = "1m", limit: int = 200
+    ) -> dict[str, pd.DataFrame]:
+        """Fetch OHLCV data for multiple symbols."""
+        data = {}
+        for sym in symbols:
+            data[sym] = self.get_ohlcv(sym, timeframe=timeframe, limit=limit)
+        return data

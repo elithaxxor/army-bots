@@ -196,6 +196,11 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Health Check Endpoint**: Add a simple `/ping` route that returns a 200 status for container orchestrators.
 - **Graceful Shutdown**: Handle SIGTERM and SIGINT signals to close open connections cleanly before exiting.
 
+### Dashboard Multi-Asset View
+
+- **Tabbed Charts**: Display multiple trading pairs at once using tabs to quickly compare assets.
+- **Cached Indicator Data**: Reuse indicator calculations between refreshes to minimise API usage.
+
 
 ### Additional Feature Proposals
 
@@ -203,3 +208,4 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Hyperparameter Tuning Tools**: Provide automated search over model parameters with cross-validation.
 - **Result Persistence**: Save backtest and model evaluation results to a local database for later comparison.
 - **Scheduled Model Retraining**: Periodically refresh saved models with the latest price data and append new evaluations to the history.
+

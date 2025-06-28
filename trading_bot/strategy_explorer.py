@@ -10,6 +10,12 @@ import plotly.express as px
 from data_fetcher import DataFetcher
 from indicator_calculator import add_indicators
 from results_db import save_evaluation, load_evaluations
+from sklearn.model_selection import cross_val_score, TimeSeriesSplit
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+
+from data_fetcher import DataFetcher
+from indicator_calculator import add_indicators
 
 st.set_page_config(page_title="Strategy Explorer")
 
@@ -24,6 +30,7 @@ splits = st.sidebar.slider(
     "Cross-Validation Splits", min_value=2, max_value=10, value=5
 )
 perform_tuning = st.sidebar.checkbox("Hyperparameter Tuning")
+
 
 @st.cache_data(ttl=3600)
 def load_data(sym: str, tf: str) -> pd.DataFrame:
@@ -70,6 +77,15 @@ else:
     importance = dict(zip(["rsi", "ema", "adx"], model.feature_importances_))
 
 save_evaluation(symbol, timeframe, model_name, params, scores, importance)
+    model = Pipeline([
+        ("scaler", StandardScaler()),
+        ("clf", LogisticRegression(max_iter=200)),
+    ])
+else:
+    model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+cv = TimeSeriesSplit(n_splits=splits)
+scores = cross_val_score(model, X, y, cv=cv, scoring="accuracy")
 
 st.write(f"Mean accuracy: {scores.mean():.3f} ± {scores.std():.3f}")
 
@@ -82,3 +98,4 @@ st.subheader("Saved Evaluations")
 history = pd.DataFrame(load_evaluations())
 if not history.empty:
     st.dataframe(history)
+

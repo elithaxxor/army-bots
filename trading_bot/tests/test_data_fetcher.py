@@ -21,6 +21,20 @@ def test_get_ohlcv_mocked():
     assert set(['open','high','low','close','volume','timestamp']).issubset(df.columns)
 
 
+def test_get_ohlcv_multi_mocked():
+    fake = MagicMock()
+    fake.fetch_ohlcv.return_value = [
+        [0, 1, 2, 0.5, 1.5, 100],
+        [1, 1.1, 2.1, 0.6, 1.6, 110],
+    ]
+    with patch('ccxt.binance', return_value=fake):
+        fetcher = DataFetcher()
+        data = fetcher.get_ohlcv_multi(['BTC/USDT', 'ETH/USDT'], limit=2)
+    assert set(data.keys()) == {'BTC/USDT', 'ETH/USDT'}
+    for df in data.values():
+        assert not df.empty
+
+
 def test_get_ohlcv_live():
     fetcher = DataFetcher()
     try:
