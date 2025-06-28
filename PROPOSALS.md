@@ -53,6 +53,12 @@ Contributions and suggestions are welcome.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
 
+### Additional Complementary Features
+
+- **Real-Time API Monitoring**: Track response times and failures from data sources to quickly spot connectivity issues.
+- **Voice Notifications**: Leverage text-to-speech services to read important alerts aloud for hands-free updates.
+- **Strategy Backtesting Module**: Use stored historical prices to simulate strategies before risking real capital.
+
 ### Additional Enhancements
 
 - **Order Book Visualisation**: Display real-time depth charts so users can monitor liquidity changes.
