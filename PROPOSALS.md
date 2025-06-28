@@ -13,8 +13,12 @@ Contributions and suggestions are welcome.
 
 - **Webhook Notifications**: Send trade alerts and model signals via email or messaging platforms.
 - **Docker Deployment**: Provide a container image for easier setup on various systems.
+
 - **Risk Management Tools**: Include stop-loss/take-profit calculators and position sizing utilities.
 - **Strategy Marketplace**: Allow users to share and download trading strategies from a community hub.
 - **Modular Plugin Support**: Enable third-party extensions for indicators, exchanges, or analytics.
+
+- **Real-Time Risk Metrics**: Display VaR and drawdown statistics to help traders monitor portfolio risk.
+
 
 
