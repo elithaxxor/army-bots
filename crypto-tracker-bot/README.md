@@ -12,6 +12,7 @@ Set the following variables in a `.env` file inside `crypto-tracker-bot/`:
 - `NEWSAPI_KEY` – News API token for news headlines
 - `DISCORD_WEBHOOK_URL` – Discord webhook URL for notifications
 - `TELEGRAM_BOT_TOKEN` – Telegram bot token used to send messages
+- `TELEGRAM_CHAT_ID` – Telegram chat ID where messages will be sent
 - `SLACK_WEBHOOK_URL` – Slack webhook URL for alerts
 - `PRICE_MOVEMENT_THRESHOLD` – Default percent change that triggers alerts (optional)
 - `POLL_INTERVAL` – How often prices are fetched in milliseconds (optional)
