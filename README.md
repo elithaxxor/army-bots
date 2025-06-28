@@ -129,16 +129,17 @@ requirements.txt      # Python dependencies
 ## Custom Strategies
 
 The backtester accepts any strategy class located in `trading_bot/strategies/`.
-Create a module in that folder and subclass `Strategy`:
+Create a module in that folder and subclass :class:`Strategy`:
 
 ```python
 from trading_bot.strategies.base import Strategy
 import pandas as pd
 
 class MyStrategy(Strategy):
-    def generate_signals(self, df: pd.DataFrame) -> float:
-        # Implement trading logic and return a final balance
-        return 1.0
+    def generate_signals(self, df: pd.DataFrame) -> pd.Series:
+        """Generate an equity curve from ``df``."""
+
+        return pd.Series([1.0] * len(df), index=df.index)
 
 ```
 
