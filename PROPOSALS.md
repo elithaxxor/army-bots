@@ -58,6 +58,12 @@ Contributions and suggestions are welcome.
 - **Staking Yield Tracker**: Monitor staking rewards for supported assets to help users optimize yield strategies.
 - **AI-Based Signals**: Explore machine learning models that combine price action and sentiment to generate trading signals.
 
+### Additional Crypto Tracker Enhancements
+
+- **Arbitrage Alerts**: Detect cross-exchange price discrepancies and notify users when profitable opportunities arise.
+- **Machine Learning Forecasts**: Implement lightweight models to predict short-term price movement using historical data.
+- **Advanced Notification Routing**: Allow configuration of channel-specific filters so users can route critical alerts to SMS while keeping general updates on Slack or Discord.
+
 ## Further Feature Ideas
 
 - **Integrated Backtesting UI**: Provide a graphical interface where users can configure strategies and visualize backtest results directly in the dashboard.
