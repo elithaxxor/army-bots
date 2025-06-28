@@ -54,6 +54,10 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+- **Unified News Dashboard**: Aggregate headlines from Tiingo, CryptoPanick, Marketeux and Alpha Vantage with sentiment scores.
+- **API Key Health Check**: Add a command-line option that reports missing or expired API keys.
+- **Adaptive Polling**: Automatically adjust fetch intervals based on market volatility.
+
 - **Unified Dashboard**: Connect the Node bot and Python dashboard into a single web interface for easier monitoring.
 - **API Authentication**: Protect the analysis server with token-based authentication.
 - **CSV Export**: Allow backtest results to be downloaded for offline review.

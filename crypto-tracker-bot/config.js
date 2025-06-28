@@ -18,4 +18,8 @@ module.exports = {
   storageInterval: parseInt(process.env.STORAGE_INTERVAL) || 300000,
   googleCloudProjectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
   googleCloudAccessToken: process.env.GOOGLE_CLOUD_ACCESS_TOKEN,
+  tiingoApiKey: process.env.TIINGO_API_KEY,
+  cryptoPanickApiKey: process.env.CRYPTO_PANICK_API_KEY,
+  marketeuxApiKey: process.env.MARKETEUX_API_KEY,
+  alphaVantageApiKey: process.env.ALPHAVANTAGE_API_KEY,
 };
