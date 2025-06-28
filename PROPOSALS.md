@@ -55,6 +55,16 @@ Contributions and suggestions are welcome.
 - **Arbitrage Signals**: Detect price discrepancies across exchanges and notify users of potential arbitrage opportunities.
 - **Staking Yield Tracker**: Monitor staking rewards for supported assets to help users optimize yield strategies.
 - **AI-Based Signals**: Explore machine learning models that combine price action and sentiment to generate trading signals.
+
+## Additional Feature Proposal
+
+To further enhance the toolkit, the following ideas could be explored:
+
+- **Unified CLI**: Provide a command-line interface that wraps common tasks like starting the bot, launching the dashboard, and running tests.
+- **Data Export Utilities**: Allow exporting price history and model results to CSV or JSON for offline analysis.
+- **WebSocket Support**: Stream real-time price updates to the dashboard without polling.
+- **User Authentication**: Secure the dashboard with login support so personal trading data remains private.
+
 - **Social Media Monitoring**: Incorporate trending data from Twitter and Reddit to enrich sentiment analysis.
 - **Automated Backtesting**: Evaluate trading strategies on historical data to gauge expected performance.
 
