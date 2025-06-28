@@ -43,6 +43,8 @@ Contributions and suggestions are welcome.
 - **Multi-Exchange Aggregation**: Fetch prices from several exchanges to improve accuracy.
 - **Portfolio Visualisation**: Track holdings over time with charts and profit/loss metrics.
 
+- **Volume Heatmaps**: Visualize trading volume across exchanges to quickly spot shifts in momentum.
+
 
 
 - **SMS Notifications**: Integrate with a service like Twilio to deliver urgent price or news alerts via text messages.
@@ -53,3 +55,36 @@ Contributions and suggestions are welcome.
 - **Automated Risk Alerts**: Monitor portfolio volatility and send warnings when thresholds are exceeded.
 - **API Key Management**: Provide a secure interface to rotate API keys without downtime.
 - **Backtest Report Export**: Allow exporting backtest results to CSV for further analysis.
+
+
+## Additional Feature Proposal
+
+To further enhance the toolkit, the following ideas could be explored:
+
+- **Unified CLI**: Provide a command-line interface that wraps common tasks like starting the bot, launching the dashboard, and running tests.
+- **Data Export Utilities**: Allow exporting price history and model results to CSV or JSON for offline analysis.
+- **WebSocket Support**: Stream real-time price updates to the dashboard without polling.
+- **User Authentication**: Secure the dashboard with login support so personal trading data remains private.
+
+- **Social Media Monitoring**: Incorporate trending data from Twitter and Reddit to enrich sentiment analysis.
+- **Automated Backtesting**: Evaluate trading strategies on historical data to gauge expected performance.
+
+### Proposed Enhancements
+
+- **Real-Time Data Streaming**: Leverage WebSocket connections for faster market updates instead of relying solely on REST polling.
+- **Pluggable Strategies**: Provide a base strategy interface so users can drop in custom Python modules without modifying core files.
+- **Backtest Report Generation**: Output performance metrics and plots after running the backtester for easier analysis.
+- **Containerized Deployment**: Offer Dockerfiles for both the Python dashboard and Node services to simplify installation.
+- **Mobile Notifications**: Integrate with push services like Pushover or Pushbullet to deliver alerts directly to smartphones.
+### Additional Complementary Features
+
+- **Real-Time API Monitoring**: Track response times and failures from data sources to quickly spot connectivity issues.
+- **Voice Notifications**: Leverage text-to-speech services to read important alerts aloud for hands-free updates.
+- **Strategy Backtesting Module**: Use stored historical prices to simulate strategies before risking real capital.
+
+### Additional Enhancements
+
+- **Order Book Visualisation**: Display real-time depth charts so users can monitor liquidity changes.
+- **Strategy Explorer**: Provide a sandbox to test various machine learning models and compare their performance.
+- **Telegram Execution Bot**: Allow trades to be triggered via secure Telegram commands for convenience.
+- **Automated Risk Controls**: Implement dynamic stop-loss and take-profit mechanisms that adapt to market volatility.
