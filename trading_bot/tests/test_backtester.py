@@ -16,6 +16,7 @@ def test_backtest_returns_report():
     })
     report = backtest(df)
     assert isinstance(report, BacktestReport)
+
     assert report.final_balance > 1.0
 
 
@@ -29,6 +30,9 @@ def test_stop_loss_triggered():
     })
     report = backtest(df)
     assert report.final_balance < 1.0
+
+    assert report.num_trades > 0
+
 
 
 def test_backtest_creates_report_files(tmp_path):
