@@ -25,6 +25,9 @@ Contributions and suggestions are welcome.
 - **Expanded Alerts**: Allow configuration of multiple Telegram chats and Discord channels.
 - **Historical Analysis**: Store long-term price data for deeper trend exploration.
 - **Real-Time Risk Metrics**: Display VaR and drawdown statistics to help traders monitor portfolio risk.
+- **Trade Journal Integration**: Automatically log executed trades with entry and exit details.
+- **Interactive Visualizations**: Use Plotly charts to display strategies and performance in real time.
+- **Alert Throttling**: Group repeated notifications to avoid spamming during volatile periods.
 
 
 
