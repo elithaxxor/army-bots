@@ -38,43 +38,8 @@ pip install -r requirements.txt
 - `auto_install_and_run.sh` – install Node modules and run both the bot and server.
 - `streamlit run trading_bot/app.py` – start the trading dashboard.
 
-## Running Tests
-
-### Node Tests
-
-Run Jest-based tests from `crypto-tracker-bot/`:
-
-```bash
-npm test
-```
-
-### Python Tests
-
-Run the dashboard tests with `pytest` from the repository root:
-=======
-### Node (Crypto Tracker Bot)
-1. Navigate to the bot directory:
-   ```bash
-   cd crypto-tracker-bot
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Create a `.env` file using the variables listed in `crypto-tracker-bot/README.md`.
-
-### Python (Trading Dashboard)
-1. It is recommended to use a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate
-   ```
-2. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
 ## Running
+
 - **Start the bot:**
   ```bash
   npm start            # from crypto-tracker-bot/
@@ -92,22 +57,28 @@ Run the dashboard tests with `pytest` from the repository root:
   ./auto_install_and_run.sh
   ```
 
-## Tests
+## Running Tests
 
 ### Node Tests
-Run unit tests for the tracker bot:
+
+Install dependencies in the bot directory then run the suite:
+
 ```bash
 cd crypto-tracker-bot
+npm install
 npm test
 ```
 
 ### Python Tests
-Activate your environment and execute:
+
+Install the Python requirements and execute the tests from the repository root:
+
 ```bash
-PYTHONPATH=. pytest
+pip install -r requirements.txt
+pytest
 ```
 
-Both suites should pass once the respective dependencies are installed.
+Both suites should pass once the dependencies are installed.
 
 ## Directory Overview
 
@@ -119,24 +90,3 @@ requirements.txt      # Python dependencies
 ```
 
 For more feature ideas, see `PROPOSALS.md`.
-python -m pytest
-```
-
-Both suites should pass without failures.
-
-The dashboard fetches real-time market data, displays technical analysis, sentiment, and a simple machine learning signal. You can also run a backtest from the sidebar.
-
-## Running Tests
-
-Python unit tests are located under `trading_bot/tests`. Before executing them, install the required Python dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Then run the test suite from the repository root:
-
-```bash
-PYTHONPATH=. pytest
-```
-
