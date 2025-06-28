@@ -137,6 +137,8 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Interactive TradingView Charts**: Embed TradingView widgets to provide professional-grade charting alongside existing graphs.
 - **Configurable Indicators**: Allow users to toggle popular indicators (e.g., RSI, MACD) directly within the TradingView widget.
 - **Multi-Asset Views**: Support displaying multiple charts simultaneously so traders can compare assets side by side.
+- **Customizable Alert Thresholds**: Let users set individual price or indicator levels that trigger notifications.
+- **Light/Dark Theme Toggle**: Offer switchable themes in the dashboard to improve readability in different environments.
 
 ## Database Enhancement Ideas
 
