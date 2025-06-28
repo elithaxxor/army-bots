@@ -6,6 +6,7 @@ module.exports = {
   newsApiKey: process.env.NEWSAPI_KEY,
   discordWebhookUrl: process.env.DISCORD_WEBHOOK_URL,
   telegramBotToken: process.env.TELEGRAM_BOT_TOKEN,
+  // Chat ID for Telegram notifications
   telegramChatId: process.env.TELEGRAM_CHAT_ID,
   slackWebhookUrl: process.env.SLACK_WEBHOOK_URL,
   chatGPTApiKey: process.env.CHATGPT_API_KEY,

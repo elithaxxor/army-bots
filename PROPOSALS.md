@@ -54,14 +54,18 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+- **SMS Alerts**: Integrate Twilio to deliver critical notifications via text message.
+
 - **Unified News Dashboard**: Aggregate headlines from Tiingo, CryptoPanick, Marketeux and Alpha Vantage with sentiment scores.
 - **API Key Health Check**: Add a command-line option that reports missing or expired API keys.
 - **Adaptive Polling**: Automatically adjust fetch intervals based on market volatility.
+
 
 - **Unified Dashboard**: Connect the Node bot and Python dashboard into a single web interface for easier monitoring.
 - **API Authentication**: Protect the analysis server with token-based authentication.
 - **CSV Export**: Allow backtest results to be downloaded for offline review.
 - **Mobile Push Notifications**: Send alerts through services like Firebase or Pushover.
+
 
 - **Arbitrage Signals**: Detect price discrepancies across exchanges and notify users of potential arbitrage opportunities.
 - **Staking Yield Tracker**: Monitor staking rewards for supported assets to help users optimize yield strategies.
@@ -103,6 +107,7 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Real-Time API Monitoring**: Track response times and failures from data sources to quickly spot connectivity issues.
 - **Voice Notifications**: Leverage text-to-speech services to read important alerts aloud for hands-free updates.
 - **Strategy Backtesting Module**: Use stored historical prices to simulate strategies before risking real capital.
+
 
 ### Additional Enhancements
 
