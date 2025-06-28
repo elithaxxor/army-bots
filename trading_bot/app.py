@@ -11,6 +11,8 @@ from sentiment import analyze_sentiment
 from ml_model import PriceDirectionModel
 from backtester import backtest
 
+REPORT_DIR = "trading_bot/reports"
+
 st.set_page_config(page_title="Crypto Dashboard", layout="wide")
 
 fetcher = DataFetcher()
@@ -53,8 +55,19 @@ for sym, tab in zip(symbols, tabs):
         current_price = fetcher.get_current_price(sym)
 
         if run_backtest:
+
+            report = backtest(data, report_dir=REPORT_DIR)
+            st.write(f"Balance: {report.final_balance:.2f}")
+            st.write(f"Profit: {report.profit:.2f}")
+            st.write(f"Max DD: {report.max_drawdown:.2%}")
+            st.write(f"Trades: {report.num_trades}")
+            if report.figure_path:
+                st.image(report.figure_path)
+
+
             result = backtest(data)
             st.write(f"Backtest balance: {result.final_balance:.2f}")
+
 
         sentiment_score = analyze_sentiment([])
         model_prob = model.predict(data)
