@@ -123,3 +123,10 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Strategy Explorer**: Provide a sandbox to test various machine learning models and compare their performance.
 - **Telegram Execution Bot**: Allow trades to be triggered via secure Telegram commands for convenience.
 - **Automated Risk Controls**: Implement dynamic stop-loss and take-profit mechanisms that adapt to market volatility.
+
+### More Complementary Features
+
+- **Multi-Exchange Support**: Aggregate prices and execute trades across several exchanges for better liquidity.
+- **Custom Alert Rules**: Allow users to define thresholds or indicator-based triggers for personalized notifications.
+- **Portfolio Rebalancing Tools**: Provide automated routines to maintain desired asset allocations.
+- **Community Leaderboard**: Enable optional sharing of performance statistics to foster friendly competition.
