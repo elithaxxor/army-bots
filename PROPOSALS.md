@@ -137,3 +137,9 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Interactive TradingView Charts**: Embed TradingView widgets to provide professional-grade charting alongside existing graphs.
 - **Configurable Indicators**: Allow users to toggle popular indicators (e.g., RSI, MACD) directly within the TradingView widget.
 - **Multi-Asset Views**: Support displaying multiple charts simultaneously so traders can compare assets side by side.
+
+## Database Enhancement Ideas
+
+- **Data Pruning Options**: Provide a command or config setting to purge older records, keeping the SQLite database lean.
+- **Indexed Queries**: Add indexes on timestamp and asset symbols to speed up historical lookups.
+- **GraphQL API**: Expose price history through a GraphQL endpoint for more flexible client queries.
