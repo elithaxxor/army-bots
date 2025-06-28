@@ -171,6 +171,11 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Trend Dashboard Widgets**: Display sparkline charts summarising short and long term trends.
 - **Historical Trend API**: Provide endpoints to query past trend alerts for backtesting and research.
 
+### Complementary Feature Proposal
+
+- **DeFi Yield Aggregation**: Track yields from DeFi protocols and include them in performance reports.
+- **Automated Portfolio Rebalancing**: Periodically adjust holdings to maintain target allocations.
+- **CSV Data Export**: Allow exporting historical prices and analysis results for offline study.
 ## Telegram Bot Enhancements
 
 - **Trade History Lookup**: Allow the bot to return recent trades on request.
