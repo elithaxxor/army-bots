@@ -78,6 +78,7 @@ Install Python dependencies (preferably in a virtual environment):
 
 ```bash
 pip install -r requirements.txt
+pip install ccxt pandas pandas_ta scikit-learn streamlit plotly transformers
 ```
 
 ### Running the Dashboard
