@@ -8,6 +8,7 @@ const imageAnalysis = require('../technicalIndicators/imageAnalysis');
 const storage = require('../persist/storage');
 const logger = require('../utils/logger');
 const apiMonitor = require('../utils/apiMonitor');
+const metrics = require('../monitoring/metrics');
 
 // initialize sqlite database
 storage.initDatabase();
@@ -154,8 +155,12 @@ app.get('/api/health', (req, res) => {
   res.json(apiMonitor.getMetrics());
 });
 
+app.get('/metrics', (req, res) => {
+  res.json(metrics.getMetrics());
+});
+
 // Emit latest prices to connected clients every 10 seconds
-setInterval(() => {
+const priceInterval = setInterval(() => {
   try {
     const latest = storage.getLatestPrice();
     if (latest) {
@@ -166,6 +171,19 @@ setInterval(() => {
   }
 }, 10000);
 
-httpServer.listen(port, () => {
-  console.log(`Server is listening at http://localhost:${port}`);
-});
+function start(p = port, cb) {
+  httpServer.listen(p, cb);
+}
+
+function close(cb) {
+  clearInterval(priceInterval);
+  httpServer.close(cb);
+}
+
+if (require.main === module) {
+  start(port, () => {
+    console.log(`Server is listening at http://localhost:${port}`);
+  });
+}
+
+module.exports = { app, httpServer, start, close };
