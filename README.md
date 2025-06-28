@@ -27,6 +27,30 @@ pip install -r requirements.txt
 - `auto_install_and_run.sh` – install Node modules and run both the bot and server
 - `streamlit run trading_bot/app.py` – start the trading dashboard
 
+## Running
+
+- **Start the bot:**
+  ```bash
+  npm start            # from crypto-tracker-bot/
+  ```
+- **Launch the HTTP server:**
+  ```bash
+  npm run server       # from crypto-tracker-bot/
+  ```
+- **Run the trading dashboard:**
+  ```bash
+  streamlit run trading_bot/app.py
+  ```
+- **Quick start both bot and server:**
+  ```bash
+  ./auto_install_and_run.sh
+  ```
+
+## Running Tests
+
+### Node Tests
+
+Install dependencies in the bot directory then run the suite:
 ## Running Tests
 
 ### Node
@@ -34,16 +58,22 @@ Run all Jest tests from `crypto-tracker-bot`:
 
 ```bash
 cd crypto-tracker-bot
+npm install
 npm test
 ```
 
+### Python Tests
+
+Install the Python requirements and execute the tests from the repository root:
 ### Python
 Run the dashboard tests from the repository root:
 
 ```bash
-PYTHONPATH=. pytest
+pip install -r requirements.txt
+pytest
 ```
 
+Both suites should pass once the dependencies are installed.
 Both suites should pass once their dependencies are installed.
 
 ## Directory Overview
