@@ -1,8 +1,12 @@
 /**
+
+ * HTTP server exposing analysis endpoints and streaming price updates.
+
  * Express server exposing analysis and monitoring endpoints for the
  * crypto tracker bot. It accepts uploaded chart images, proxies
  * OpenAI requests via the apiMonitor wrapper, and streams stored
  * price updates over WebSockets.
+
  */
 const express = require('express');
 const fs = require('fs');
@@ -24,11 +28,20 @@ const port = process.env.PORT || 3000;
 const httpServer = http.createServer(app);
 const io = new Server(httpServer);
 
-io.on('connection', () => {
+// When a new client connects send the most recent price snapshot
+io.on('connection', (socket) => {
   logger.info('Socket.IO client connected');
+  try {
+    const latest = storage.getLatestPrice();
+    if (latest) {
+      socket.emit('prices', latest);
+    }
+  } catch (error) {
+    logger.error('Error fetching latest price on connect:', error);
+  }
 });
 
-// Forward new price inserts to all clients in real time
+// Forward new price inserts from the database to all connected clients
 storage.emitter.on('insert', (prices) => {
   try {
     io.emit('prices', { data: prices });
@@ -174,7 +187,7 @@ app.get('/metrics', (req, res) => {
   res.json(metrics.getMetrics());
 });
 
-// Emit latest prices to connected clients every 10 seconds
+// Periodically broadcast the most recent price entry to all clients
 const priceInterval = setInterval(() => {
   try {
     const latest = storage.getLatestPrice();
