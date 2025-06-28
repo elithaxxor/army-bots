@@ -31,3 +31,7 @@ Contributions and suggestions are welcome.
 - **Trend Alerts**: Notify users when a coin moves beyond a configurable threshold.
 - **Web Dashboard**: Add a simple interface to view current prices and recent news.
 
+- **Scheduled Reports**: Automatically post daily or weekly summaries to Telegram.
+- **Multi-Exchange Aggregation**: Fetch prices from several exchanges to improve accuracy.
+- **Portfolio Visualisation**: Track holdings over time with charts and profit/loss metrics.
+
