@@ -1,3 +1,4 @@
+"""Streamlit dashboard for visualising multiple crypto pairs simultaneously."""
 """Interactive Streamlit dashboard for visualising crypto data and indicators."""
 
 from __future__ import annotations
@@ -5,7 +6,7 @@ from __future__ import annotations
 import streamlit as st
 import plotly.graph_objects as go
 from data_fetcher import DataFetcher
-from indicator_calculator import add_indicators, find_fractals, support_resistance
+from indicator_calculator import compute_indicators_batch
 from sentiment import analyze_sentiment
 from ml_model import PriceDirectionModel
 from backtester import backtest
@@ -32,31 +33,28 @@ symbols_input = st.sidebar.text_input(
     "Trading Pairs (comma separated)", value="BTC/USDT"
 )
 symbols = [s.strip().upper() for s in symbols_input.split(",") if s.strip()]
-refresh = st.sidebar.number_input("Refresh (s)", min_value=5, value=30)
 run_backtest = st.sidebar.button("Run Backtest")
 refresh_btn = st.sidebar.button("Refresh Now")
 
-@st.cache_data(ttl=60)
-def load_data(sym: str):
-    df = fetcher.get_ohlcv(sym, timeframe="1m", limit=500)
-    df = add_indicators(df)
-    df = find_fractals(df)
-    lows, highs = support_resistance(df)
-    df["support"] = lows
-    df["resistance"] = highs
-    model.train(df)
-    return df
 
+@st.cache_data(ttl=60)
+def load_all(symbols: list[str]):
+    data = fetcher.get_ohlcv_multi(symbols, timeframe="1m", limit=500)
+    data = compute_indicators_batch(data)
+    return data
+
+data_dict = load_all(symbols)
 tabs = st.tabs(symbols)
 
 for sym, tab in zip(symbols, tabs):
     with tab:
-        data = load_data(sym)
+        data = data_dict[sym]
+        model.train(data)
         current_price = fetcher.get_current_price(sym)
 
         if run_backtest:
             result = backtest(data)
-            st.write(f"Backtest balance: {result:.2f}")
+            st.write(f"Backtest balance: {result.final_balance:.2f}")
 
         sentiment_score = analyze_sentiment([])
         model_prob = model.predict(data)

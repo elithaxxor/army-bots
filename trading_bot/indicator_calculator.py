@@ -1,6 +1,11 @@
+"""Technical indicator helpers used by the dashboard and strategies."""
+
+from typing import Dict
+
 """Utility functions for calculating common technical indicators."""
 
 from __future__ import annotations
+
 
 import pandas as pd
 import pandas_ta as ta
@@ -53,3 +58,18 @@ def support_resistance(df: pd.DataFrame, window: int = 20):
     rolling_high = df['high'].rolling(window).max()
     rolling_low = df['low'].rolling(window).min()
     return rolling_low, rolling_high
+
+
+def compute_indicators(df: pd.DataFrame) -> pd.DataFrame:
+    """Run all indicator calculations on ``df``."""
+    df = add_indicators(df)
+    df = find_fractals(df)
+    lows, highs = support_resistance(df)
+    df["support"] = lows
+    df["resistance"] = highs
+    return df
+
+
+def compute_indicators_batch(data: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:
+    """Apply ``compute_indicators`` to each DataFrame in ``data``."""
+    return {sym: compute_indicators(df) for sym, df in data.items()}
