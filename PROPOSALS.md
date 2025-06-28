@@ -196,3 +196,10 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Health Check Endpoint**: Add a simple `/ping` route that returns a 200 status for container orchestrators.
 - **Graceful Shutdown**: Handle SIGTERM and SIGINT signals to close open connections cleanly before exiting.
 
+
+### Additional Feature Proposals
+
+- **Feature Importance Charts**: Visualize which indicators contribute most to a model's predictions.
+- **Hyperparameter Tuning Tools**: Provide automated search over model parameters with cross-validation.
+- **Result Persistence**: Save backtest and model evaluation results to a local database for later comparison.
+- **Scheduled Model Retraining**: Periodically refresh saved models with the latest price data and append new evaluations to the history.
