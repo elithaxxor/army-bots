@@ -32,8 +32,13 @@ data = load_data()
 current_price = fetcher.get_current_price(symbol)
 
 if run_backtest:
-    result = backtest(data)
-    st.sidebar.write(f"Backtest balance: {result:.2f}")
+    report = backtest(data, report_dir="trading_bot/reports")
+    st.sidebar.write(f"Backtest balance: {report.final_balance:.2f}")
+    st.sidebar.write(f"Profit: {report.profit:.2f}")
+    st.sidebar.write(f"Max DD: {report.max_drawdown:.2%}")
+    st.sidebar.write(f"Trades: {report.num_trades}")
+    if report.figure_path:
+        st.image(report.figure_path)
 
 sentiment_score = analyze_sentiment([])
 model_prob = model.predict(data)
