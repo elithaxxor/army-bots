@@ -27,14 +27,6 @@ def test_add_indicators():
 
 
 def test_find_fractals():
-    data = {
-        'timestamp': pd.date_range('2020-01-01', periods=5, freq='min'),
-        'open': [1,2,3,2,1],
-        'high': [1,3,5,3,1],
-        'low': [1,2,1,2,1],
-        'close': [1,2,3,2,1],
-        'volume': [1]*5
-    }
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(DATA)
     df = find_fractals(df)
     assert 'fractal_up' in df.columns
