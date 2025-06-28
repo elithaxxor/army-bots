@@ -43,6 +43,8 @@ Contributions and suggestions are welcome.
 - **Multi-Exchange Aggregation**: Fetch prices from several exchanges to improve accuracy.
 - **Portfolio Visualisation**: Track holdings over time with charts and profit/loss metrics.
 
+
+
 - **Volume Heatmaps**: Visualize trading volume across exchanges to quickly spot shifts in momentum.
 
 
