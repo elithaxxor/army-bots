@@ -14,10 +14,13 @@ Contributions and suggestions are welcome.
 
 - **Webhook Notifications**: Send trade alerts and model signals via email or messaging platforms.
 - **Docker Deployment**: Provide a container image for easier setup on various systems.
+- **Interactive Charting**: Visualize sentiment and technical indicators directly in the web client using Chart.js, allowing users to quickly interpret market data.
+
 
 - **Risk Management Tools**: Include stop-loss/take-profit calculators and position sizing utilities.
 - **Strategy Marketplace**: Allow users to share and download trading strategies from a community hub.
 - **Modular Plugin Support**: Enable third-party extensions for indicators, exchanges, or analytics.
+
 
 - **Expanded Alerts**: Allow configuration of multiple Telegram chats and Discord channels.
 - **Historical Analysis**: Store long-term price data for deeper trend exploration.
