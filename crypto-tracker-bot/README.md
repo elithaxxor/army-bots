@@ -43,6 +43,8 @@ The server listens on port `3000` by default.
 
 This project uses Node's built-in test runner. The `npm test` command simply
 executes `node --test=__tests__`:
+This project uses Node's built-in test runner. The `npm test` command executes
+`node --test=__tests__`, running all files in the `__tests__/` directory.
 
 ```bash
 npm test

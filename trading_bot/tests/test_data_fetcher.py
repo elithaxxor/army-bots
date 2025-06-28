@@ -1,4 +1,8 @@
-import sys, os; sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+import sys
+import os
+
+# Ensure the package can be imported when running tests from the repo root
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 from unittest.mock import patch, MagicMock
 from trading_bot.data_fetcher import DataFetcher
 import pandas as pd
