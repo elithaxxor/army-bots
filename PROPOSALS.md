@@ -54,6 +54,11 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+
+
+- **Automated Risk Alerts**: Monitor portfolio volatility and send warnings when thresholds are exceeded.
+- **API Key Management**: Provide a secure interface to rotate API keys without downtime.
+- **Backtest Report Export**: Allow exporting backtest results to CSV for further analysis.
 - **SMS Alerts**: Integrate Twilio to deliver critical notifications via text message.
 
 - **Unified News Dashboard**: Aggregate headlines from Tiingo, CryptoPanick, Marketeux and Alpha Vantage with sentiment scores.
@@ -71,6 +76,8 @@ Contributions and suggestions are welcome.
 - **Staking Yield Tracker**: Monitor staking rewards for supported assets to help users optimize yield strategies.
 - **AI-Based Signals**: Explore machine learning models that combine price action and sentiment to generate trading signals.
 
+
+
 ### Additional Crypto Tracker Enhancements
 
 - **Arbitrage Alerts**: Detect cross-exchange price discrepancies and notify users when profitable opportunities arise.
@@ -83,6 +90,7 @@ Contributions and suggestions are welcome.
 - **Cloud Deployment Templates**: Offer Terraform or Docker Compose examples so the entire stack can be deployed easily to cloud providers.
 - **User Accounts & Permissions**: Add optional authentication with role-based permissions to restrict access to trading features.
 - **Automated Parameter Tuning**: Leverage optimization libraries to search over strategy parameters for the best historical performance.
+
 ## Additional Feature Proposal
 
 To further enhance the toolkit, the following ideas could be explored:
