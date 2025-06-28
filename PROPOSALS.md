@@ -43,6 +43,8 @@ Contributions and suggestions are welcome.
 - **Multi-Exchange Aggregation**: Fetch prices from several exchanges to improve accuracy.
 - **Portfolio Visualisation**: Track holdings over time with charts and profit/loss metrics.
 
+
+
 - **Volume Heatmaps**: Visualize trading volume across exchanges to quickly spot shifts in momentum.
 
 
@@ -53,15 +55,36 @@ Contributions and suggestions are welcome.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
 
+
 - **Automated Risk Alerts**: Monitor portfolio volatility and send warnings when thresholds are exceeded.
 - **API Key Management**: Provide a secure interface to rotate API keys without downtime.
 - **Backtest Report Export**: Allow exporting backtest results to CSV for further analysis.
+
+
+- **Unified Dashboard**: Connect the Node bot and Python dashboard into a single web interface for easier monitoring.
+- **API Authentication**: Protect the analysis server with token-based authentication.
+- **CSV Export**: Allow backtest results to be downloaded for offline review.
+- **Mobile Push Notifications**: Send alerts through services like Firebase or Pushover.
 
 
 - **Arbitrage Signals**: Detect price discrepancies across exchanges and notify users of potential arbitrage opportunities.
 - **Staking Yield Tracker**: Monitor staking rewards for supported assets to help users optimize yield strategies.
 - **AI-Based Signals**: Explore machine learning models that combine price action and sentiment to generate trading signals.
 
+
+
+### Additional Crypto Tracker Enhancements
+
+- **Arbitrage Alerts**: Detect cross-exchange price discrepancies and notify users when profitable opportunities arise.
+- **Machine Learning Forecasts**: Implement lightweight models to predict short-term price movement using historical data.
+- **Advanced Notification Routing**: Allow configuration of channel-specific filters so users can route critical alerts to SMS while keeping general updates on Slack or Discord.
+
+## Further Feature Ideas
+
+- **Integrated Backtesting UI**: Provide a graphical interface where users can configure strategies and visualize backtest results directly in the dashboard.
+- **Cloud Deployment Templates**: Offer Terraform or Docker Compose examples so the entire stack can be deployed easily to cloud providers.
+- **User Accounts & Permissions**: Add optional authentication with role-based permissions to restrict access to trading features.
+- **Automated Parameter Tuning**: Leverage optimization libraries to search over strategy parameters for the best historical performance.
 
 ## Additional Feature Proposal
 
