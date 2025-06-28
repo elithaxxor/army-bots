@@ -52,9 +52,15 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+
 - **Automated Risk Alerts**: Monitor portfolio volatility and send warnings when thresholds are exceeded.
 - **API Key Management**: Provide a secure interface to rotate API keys without downtime.
 - **Backtest Report Export**: Allow exporting backtest results to CSV for further analysis.
+
+
+- **Arbitrage Signals**: Detect price discrepancies across exchanges and notify users of potential arbitrage opportunities.
+- **Staking Yield Tracker**: Monitor staking rewards for supported assets to help users optimize yield strategies.
+- **AI-Based Signals**: Explore machine learning models that combine price action and sentiment to generate trading signals.
 
 
 ## Additional Feature Proposal
