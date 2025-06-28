@@ -46,6 +46,9 @@ pip install -r requirements.txt
   ```bash
   streamlit run trading_bot/strategy_explorer.py
   ```
+  This page supports hyperparameter tuning, feature-importance charts,
+  and persists evaluation results for later review.
+
 - **Quick start both bot and server:**
   ```bash
   ./auto_install_and_run.sh
