@@ -25,6 +25,7 @@ Set the following variables in a `.env` file inside `crypto-tracker-bot/`:
 - `STORAGE_INTERVAL` – Interval for persisting price history in milliseconds (optional)
 - `GOOGLE_CLOUD_PROJECT_ID` – Google Cloud project ID used by Vertex AI
 - `GOOGLE_CLOUD_ACCESS_TOKEN` – Access token for the Google Cloud Vertex API
+- `PORT` – Port where the optional server listens (defaults to `3000`)
 
 ## Running the Bot
 
@@ -43,7 +44,7 @@ To start the HTTP server that exposes analysis endpoints, run:
 npm run server
 ```
 
-The server listens on port `3000` by default.
+ The server listens on port `3000` by default. Set the `PORT` environment variable to use a different port.
 
 ## Running Tests
 

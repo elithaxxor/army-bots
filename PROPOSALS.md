@@ -170,3 +170,20 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Multi-Window Trend Alerts**: Notify users when price changes over 1h, 4h, or 24h exceed configurable thresholds.
 - **Trend Dashboard Widgets**: Display sparkline charts summarising short and long term trends.
 - **Historical Trend API**: Provide endpoints to query past trend alerts for backtesting and research.
+
+### Complementary Feature Proposal
+
+- **DeFi Yield Aggregation**: Track yields from DeFi protocols and include them in performance reports.
+- **Automated Portfolio Rebalancing**: Periodically adjust holdings to maintain target allocations.
+- **CSV Data Export**: Allow exporting historical prices and analysis results for offline study.
+## Telegram Bot Enhancements
+
+- **Trade History Lookup**: Allow the bot to return recent trades on request.
+- **Custom Order Sizes**: Save preferred trade amounts per symbol for quicker execution.
+- **Backtest Summaries**: Provide a formatted report with key metrics after running `/simulate_backtest`.
+- **Multi-User Support**: Permit multiple authorised user IDs for team-based trading.
+### Complementary Server Enhancements
+
+- **Configurable Port**: Allow the HTTP server to respect the `PORT` environment variable so deployments can choose a different listening port.
+- **Health Check Endpoint**: Add a simple `/ping` route that returns a 200 status for container orchestrators.
+- **Graceful Shutdown**: Handle SIGTERM and SIGINT signals to close open connections cleanly before exiting.
