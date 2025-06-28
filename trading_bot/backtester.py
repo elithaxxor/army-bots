@@ -1,3 +1,4 @@
+"""Simple backtesting framework for evaluating trading strategies."""
 """Simple backtester used for evaluating strategies."""
 
 from dataclasses import dataclass
@@ -5,8 +6,8 @@ from pathlib import Path
 from typing import Optional
 
 import json
-import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
 import pandas as pd
 
 from trading_bot.strategies.base import Strategy
@@ -14,6 +15,19 @@ from trading_bot.risk import add_stop_levels
 
 
 class SimpleStrategy(Strategy):
+    """Baseline strategy using VWAP and RSI crosses with dynamic stops."""
+
+    def generate_signals(self, df: pd.DataFrame) -> pd.Series:
+        """Return an equity curve for ``df`` using a basic trading logic."""
+
+        df = add_stop_levels(df)
+        position = 0.0
+        balance = 1.0
+        equity = []
+        stop_loss = take_profit = None
+
+        for _, row in df.iterrows():
+            if not position:
     """Reimplements the original trading logic and returns an equity curve."""
 
     def generate_signals(self, df: pd.DataFrame) -> pd.Series:
@@ -38,6 +52,7 @@ class SimpleStrategy(Strategy):
                 elif row["close"] < row["vwap"] or row["rsi"] > 70:
                     balance = position * row["close"]
                     position = 0.0
+
             equity.append(balance + position * row["close"])
 
         if position:
@@ -49,6 +64,8 @@ class SimpleStrategy(Strategy):
 
 @dataclass
 class BacktestReport:
+    """Results produced by :func:`backtest`."""
+
     final_balance: float
     profit: float
     max_drawdown: float

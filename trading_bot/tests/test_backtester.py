@@ -7,6 +7,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..",
 import pandas as pd
 from trading_bot.backtester import backtest, BacktestReport
 
+from trading_bot.backtester import backtest
 
 def test_backtest_returns_report():
     df = pd.DataFrame({
@@ -30,6 +31,8 @@ def test_stop_loss_triggered():
     })
     report = backtest(df)
     assert report.final_balance < 1.0
+    report2 = backtest(df)
+    assert isinstance(report2.final_balance, float)
 
     assert report.num_trades > 0
 
