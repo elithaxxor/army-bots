@@ -49,7 +49,7 @@ async function checkPrices() {
       }
       previousPrices[symbol] = currentPrice;
     }
-    await storage.insertPriceHistory(prices);
+    storage.insertPriceHistory(prices);
   } catch (error) {
     logger.error("Error checking prices:", error);
   }
@@ -59,7 +59,7 @@ setInterval(checkPrices, config.pollInterval);
 
 setInterval(async () => {
   try {
-    await storage.insertPriceHistory(previousPrices);
+    storage.insertPriceHistory(previousPrices);
     logger.info("Periodic data persisted.");
   } catch (error) {
     logger.error("Error in periodic persistence:", error);
