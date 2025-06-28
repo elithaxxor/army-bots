@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node bot.js",
     "server": "node server/server.js",
-    "test": "node --test=__tests__"
+    "test": "node --test"
   },
   "devDependencies": {},
   "dependencies": {
