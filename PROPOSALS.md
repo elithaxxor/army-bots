@@ -8,3 +8,10 @@ The new Python trading dashboard lays the groundwork for advanced trading featur
 - **Portfolio Tracking**: Extend the dashboard to manage multiple assets and track overall performance.
 
 Contributions and suggestions are welcome.
+
+## Additional Ideas
+
+- **Webhook Notifications**: Send trade alerts and model signals via email or messaging platforms.
+- **Docker Deployment**: Provide a container image for easier setup on various systems.
+
+

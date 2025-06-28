@@ -1,0 +1,8 @@
+numpy<2.0
+ccxt
+pandas
+pandas_ta
+scikit-learn
+streamlit
+plotly
+transformers

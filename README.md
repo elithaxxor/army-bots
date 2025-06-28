@@ -77,6 +77,7 @@ A Python-based crypto trading dashboard is provided under `trading_bot/`. It use
 Install Python dependencies (preferably in a virtual environment):
 
 ```bash
+pip install -r requirements.txt
 pip install ccxt pandas pandas_ta scikit-learn streamlit plotly transformers
 ```
 

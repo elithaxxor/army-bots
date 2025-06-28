@@ -9,6 +9,12 @@ except Exception as e:
 
 def test_add_indicators():
     data = {
+        'timestamp': pd.date_range('2020-01-01', periods=20, freq='min'),
+        'open': [1]*20,
+        'high': [1.1]*20,
+        'low': [0.9]*20,
+        'close': [1]*20,
+        'volume': [100]*20,
         'timestamp': pd.date_range('2020-01-01', periods=10, freq='min'),
         'open': [1]*10,
         'high': [1.1]*10,
