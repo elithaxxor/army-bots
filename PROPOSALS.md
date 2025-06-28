@@ -146,3 +146,10 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Data Pruning Options**: Provide a command or config setting to purge older records, keeping the SQLite database lean.
 - **Indexed Queries**: Add indexes on timestamp and asset symbols to speed up historical lookups.
 - **GraphQL API**: Expose price history through a GraphQL endpoint for more flexible client queries.
+
+### Additional Feature Suggestions
+
+- **Offline Mode**: Cache price data locally so the dashboard remains usable without an internet connection.
+- **Trade Scheduler**: Allow strategies to execute automatically at predefined intervals.
+- **Performance Metrics**: Report Sharpe ratio and max drawdown to help evaluate trading strategies.
+- **Mobile Companion App**: Provide a lightweight app for monitoring and executing trades on the go.
