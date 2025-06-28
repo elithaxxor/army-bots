@@ -18,3 +18,11 @@ test('insertPriceHistory stores rows', () => {
   assert.strictEqual(history.length, 1);
   assert.deepStrictEqual(history[0].data, { BTC: 1 });
 });
+
+test('getPriceBefore returns most recent earlier price', () => {
+  resetDB();
+  storage.insertPriceHistory({ BTC: 2 });
+  const target = new Date(Date.now() + 1000);
+  const row = storage.getPriceBefore(target);
+  assert.deepStrictEqual(row, { BTC: 2 });
+});
