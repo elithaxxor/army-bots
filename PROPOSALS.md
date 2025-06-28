@@ -130,3 +130,9 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Custom Alert Rules**: Allow users to define thresholds or indicator-based triggers for personalized notifications.
 - **Portfolio Rebalancing Tools**: Provide automated routines to maintain desired asset allocations.
 - **Community Leaderboard**: Enable optional sharing of performance statistics to foster friendly competition.
+
+### TradingView Widget Enhancements
+
+- **Interactive TradingView Charts**: Embed TradingView widgets to provide professional-grade charting alongside existing graphs.
+- **Configurable Indicators**: Allow users to toggle popular indicators (e.g., RSI, MACD) directly within the TradingView widget.
+- **Multi-Asset Views**: Support displaying multiple charts simultaneously so traders can compare assets side by side.
