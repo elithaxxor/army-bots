@@ -64,6 +64,62 @@ document.addEventListener('DOMContentLoaded', () => {
     tickerIndex++;
   }
 
+  // Charts for sentiment and technical analysis
+  let sentimentChart;
+  let technicalChart;
+
+  function updateSentimentChart(text) {
+    const positive = (text.match(/positive|bullish/gi) || []).length;
+    const negative = (text.match(/negative|bearish/gi) || []).length;
+    const neutral = Math.max(0, text.length ? text.split(/\s+/).length - positive - negative : 0);
+    const ctx = document.getElementById('sentiment-graphical').getContext('2d');
+    if (!sentimentChart) {
+      sentimentChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Positive', 'Negative', 'Neutral'],
+          datasets: [{
+            label: 'Sentiment',
+            backgroundColor: ['#28a745', '#dc3545', '#6c757d'],
+            data: [positive, negative, neutral]
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+    } else {
+      sentimentChart.data.datasets[0].data = [positive, negative, neutral];
+      sentimentChart.update();
+    }
+  }
+
+  function updateTechnicalChart(text) {
+    const rsi = parseFloat((text.match(/RSI[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
+    const macd = parseFloat((text.match(/MACD[^0-9-]*([-0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
+    const sma = parseFloat((text.match(/SMA[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
+    const ema = parseFloat((text.match(/EMA[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
+    const ctx = document.getElementById('technical-graphical').getContext('2d');
+    if (!technicalChart) {
+      technicalChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['RSI', 'MACD', 'SMA', 'EMA'],
+          datasets: [{
+            label: 'Indicators',
+            backgroundColor: 'rgba(54,162,235,0.2)',
+            borderColor: 'rgba(54,162,235,1)',
+            data: [rsi, macd, sma, ema]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: { r: { beginAtZero: true, max: 100 } }
+        }
+      });
+    } else {
+      technicalChart.data.datasets[0].data = [rsi, macd, sma, ema];
+      technicalChart.update();
+    }
   function calculateSentimentCounts(text) {
     const positiveWords = ['bullish', 'positive', 'buy', 'growth', 'uptrend'];
     const negativeWords = ['bearish', 'negative', 'sell', 'downtrend', 'decline'];
@@ -123,6 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('sentiment-text').appendChild(enhancedSentimentDiv);
 
       // Render graphical sentiment and technical indicators
+      updateSentimentChart(sentimentData.sentimentAnalysis);
+      updateTechnicalChart(technicalData.technicalAnalysis);
       const sentimentCounts = calculateSentimentCounts(sentimentData.sentimentAnalysis || '');
       const sentimentCtx = document.getElementById('sentiment-graphical').getContext('2d');
       if (!sentimentChart) {

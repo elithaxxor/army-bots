@@ -36,6 +36,8 @@ Contributions and suggestions are welcome.
 - **Historical Price Storage**: Persist fetched prices to a database for long-term analysis.
 - **Trend Alerts**: Notify users when a coin moves beyond a configurable threshold.
 - **Web Dashboard**: Add a simple interface to view current prices and recent news.
+- **Visual Analytics Dashboard**: Include charts for sentiment and technical indicators with live updates.
+- **Scheduled Reporting**: Email or Slack weekly summaries of market conditions and bot performance.
 
 - **Scheduled Reports**: Automatically post daily or weekly summaries to Telegram.
 - **Multi-Exchange Aggregation**: Fetch prices from several exchanges to improve accuracy.

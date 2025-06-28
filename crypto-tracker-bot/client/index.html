@@ -11,15 +11,18 @@
 </head>
 <body>
   <div class="container mt-5">
-    <header class="text-center">
+    <header class="text-center mb-4">
       <h1>Crypto Tracker & Analysis Engine</h1>
       <!-- Attractive banner from Pexels -->
       <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Market Trends" class="img-fluid rounded" />
     </header>
-    <section class="mt-4">
-      <h3>Live Price Graph</h3>
-      <canvas id="priceChart" width="400" height="200"></canvas>
-    </section>
+
+    <!-- Graph view -->
+    <div id="graph-view">
+      <section class="mt-4">
+        <h3>Live Price Graph</h3>
+        <canvas id="priceChart" width="400" height="200"></canvas>
+      </section>
     <section class="mt-4">
       <h3>Select Cryptocurrencies to Track</h3>
       <form id="coinSelectionForm">
@@ -75,10 +78,32 @@
         <button type="submit" class="btn btn-primary">Analyze Image</button>
       </form>
     </section>
-    <section class="mt-4">
-      <h3>Analysis Result</h3>
-      <pre id="result" class="bg-light p-3"></pre>
-    </section>
+      <section class="mt-4">
+        <h3>Analysis Result</h3>
+        <pre id="result" class="bg-light p-3"></pre>
+      </section>
+
+      <div class="text-center mt-4">
+        <button id="to-analysis" class="btn btn-secondary">View Analysis</button>
+      </div>
+    </div> <!-- end graph-view -->
+
+    <!-- Analysis view hidden by default -->
+    <div id="analysis-view" style="display:none;">
+      <div class="text-center mb-3">
+        <button id="to-graph" class="btn btn-secondary">Back to Graph</button>
+      </div>
+      <section class="mt-3">
+        <h3>Sentiment Analysis</h3>
+        <p id="sentiment-text"></p>
+        <canvas id="sentiment-graphical" height="200"></canvas>
+      </section>
+      <section class="mt-4">
+        <h3>Technical Analysis</h3>
+        <p id="technical-text"></p>
+        <canvas id="technical-graphical" height="200"></canvas>
+      </section>
+    </div> <!-- end analysis-view -->
   </div>
   <script src="main.js"></script>
 </body>
