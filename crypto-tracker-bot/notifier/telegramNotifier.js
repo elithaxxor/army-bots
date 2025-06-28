@@ -1,12 +1,12 @@
 const axios = require('axios');
-const config = require('../config');
+const { telegramBotToken, telegramChatId } = require('../config');
 const logger = require('../utils/logger');
 
 async function sendTelegramMessage(message) {
   try {
-    const url = `https://api.telegram.org/bot${config.telegramBotToken}/sendMessage`;
+    const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
     await axios.post(url, {
-      chat_id: config.telegramChatId,
+      chat_id: telegramChatId,
       text: message,
     });
   } catch (error) {

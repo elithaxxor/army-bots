@@ -45,3 +45,4 @@ Contributions and suggestions are welcome.
 
 
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+- **SMS Alerts**: Integrate Twilio to deliver critical notifications via text message.
