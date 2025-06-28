@@ -7,6 +7,7 @@ const { Server } = require('socket.io');
 const imageAnalysis = require('../technicalIndicators/imageAnalysis');
 const storage = require('../persist/storage');
 const logger = require('../utils/logger');
+const apiMonitor = require('../utils/apiMonitor');
 
 // initialize sqlite database
 storage.initDatabase();
@@ -70,7 +71,6 @@ app.get('/api/price-history', (req, res) => {
   }
 });
 
-const axios = require('axios');
 const config = require('../config');
 const cryptoTracker = require('../monitoring/cryptoTracker');
 const newsTracker = require('../monitoring/newsTracker');
@@ -82,19 +82,18 @@ app.get('/api/technical-analysis', async (req, res) => {
     const prices = await cryptoTracker.fetchPrices();
     const btcPrice = prices.BTC;
     const prompt = `Provide a comprehensive technical analysis for BTC given the current price is ${btcPrice} USD. Include key technical indicators such as RSI, MACD, Bollinger Bands, SMA, EMA, trend lines, support & resistance levels, Fibonacci retracement, Stochastic Oscillator, volume analysis, and potential breakout patterns. Explain the implications of each indicator on the price movement.`;
-    const response = await axios.post(
-      'https://api.openai.com/v1/chat/completions',
-      {
+    const response = await apiMonitor.request({
+      method: 'post',
+      url: 'https://api.openai.com/v1/chat/completions',
+      data: {
          model: "gpt-3.5-turbo",
          messages: [{ role: "user", content: prompt }]
       },
-      {
-         headers: {
-            'Authorization': `Bearer ${config.chatGPTApiKey}`,
-            'Content-Type': 'application/json'
-         }
+      headers: {
+         'Authorization': `Bearer ${config.chatGPTApiKey}`,
+         'Content-Type': 'application/json'
       }
-    );
+    });
     res.json({ technicalAnalysis: response.data.choices[0].message.content });
   } catch (error) {
     logger.error("Technical analysis error:", error);
@@ -132,24 +131,27 @@ app.get('/api/sentiment-analysis', async (req, res) => {
     const prices = await cryptoTracker.fetchPrices();
     const btcPrice = prices.BTC;
     const prompt = `Analyze the market sentiment for BTC. The current price is ${btcPrice} USD. Recent news headlines include: ${headlines}. Provide a detailed sentiment analysis including possible market impacts.`;
-    const response = await axios.post(
-      'https://api.openai.com/v1/chat/completions',
-      {
+    const response = await apiMonitor.request({
+      method: 'post',
+      url: 'https://api.openai.com/v1/chat/completions',
+      data: {
          model: "gpt-3.5-turbo",
          messages: [{ role: "user", content: prompt }]
       },
-      {
-         headers: {
-            'Authorization': `Bearer ${config.chatGPTApiKey}`,
-            'Content-Type': 'application/json'
-         }
+      headers: {
+         'Authorization': `Bearer ${config.chatGPTApiKey}`,
+         'Content-Type': 'application/json'
       }
-    );
+    });
     res.json({ sentimentAnalysis: response.data.choices[0].message.content });
   } catch (error) {
     logger.error("Sentiment analysis error:", error);
     res.status(500).json({ error: "Error performing sentiment analysis" });
   }
+});
+
+app.get('/api/health', (req, res) => {
+  res.json(apiMonitor.getMetrics());
 });
 
 // Emit latest prices to connected clients every 10 seconds
