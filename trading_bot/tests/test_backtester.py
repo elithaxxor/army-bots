@@ -16,6 +16,20 @@ def test_backtest_returns_report():
         'rsi': [20, 40, 20],
         'close': [1.0, 1.1, 1.2]
     })
+    result = backtest(df)
+    assert result > 1.0
+
+
+def test_stop_loss_triggered():
+    df = pd.DataFrame({
+        'vwap': [0.9, 0.9, 0.9],
+        'rsi': [20, 40, 40],
+        'close': [1.0, 1.05, 0.8],
+        'high': [1.1, 1.1, 1.05],
+        'low': [0.9, 1.0, 0.75]
+    })
+    result = backtest(df)
+    assert result < 1.0
     report = backtest(df)
     assert report.final_balance > 1.0
 
