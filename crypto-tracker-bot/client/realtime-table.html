@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Price Table</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 1em; }
+    table { border-collapse: collapse; width: 300px; }
+    th, td { border: 1px solid #ccc; padding: 0.5em; text-align: right; }
+    th { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h1>Live Crypto Prices</h1>
+  <table id="price-table">
+    <thead>
+      <tr><th>Symbol</th><th>Price (USD)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>BTC</td><td id="BTC">-</td></tr>
+      <tr><td>ETH</td><td id="ETH">-</td></tr>
+    </tbody>
+  </table>
+  <script>
+    const socket = io();
+    socket.on('prices', payload => {
+      const data = payload.data || payload;
+      ['BTC', 'ETH'].forEach(symbol => {
+        if (data[symbol]) {
+          document.getElementById(symbol).textContent = data[symbol].toFixed(2);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
