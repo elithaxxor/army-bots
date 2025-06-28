@@ -93,21 +93,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateTechnicalChart(text) {
-    const rsi = parseFloat((text.match(/RSI[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
-    const macd = parseFloat((text.match(/MACD[^0-9-]*([-0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
-    const sma = parseFloat((text.match(/SMA[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
-    const ema = parseFloat((text.match(/EMA[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
+    const indicators = {
+      RSI: parseFloat((text.match(/RSI[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0,
+      MACD: parseFloat((text.match(/MACD[^0-9-]*([-0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0,
+      SMA: parseFloat((text.match(/SMA[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0,
+      EMA: parseFloat((text.match(/EMA[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0
+    };
+
     const ctx = document.getElementById('technical-graphical').getContext('2d');
+    const labels = Object.keys(indicators);
+    const values = Object.values(indicators);
+
     if (!technicalChart) {
       technicalChart = new Chart(ctx, {
         type: 'radar',
         data: {
-          labels: ['RSI', 'MACD', 'SMA', 'EMA'],
+          labels,
           datasets: [{
             label: 'Indicators',
             backgroundColor: 'rgba(54,162,235,0.2)',
             borderColor: 'rgba(54,162,235,1)',
-            data: [rsi, macd, sma, ema]
+            data: values
           }]
         },
         options: {
@@ -117,29 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     } else {
-      technicalChart.data.datasets[0].data = [rsi, macd, sma, ema];
+      technicalChart.data.labels = labels;
+      technicalChart.data.datasets[0].data = values;
       technicalChart.update();
     }
-  function calculateSentimentCounts(text) {
-    const positiveWords = ['bullish', 'positive', 'buy', 'growth', 'uptrend'];
-    const negativeWords = ['bearish', 'negative', 'sell', 'downtrend', 'decline'];
-    const lower = text.toLowerCase();
-    const countWords = (words) => words.reduce((acc, w) => acc + (lower.match(new RegExp(w, 'g')) || []).length, 0);
-    return {
-      positive: countWords(positiveWords),
-      negative: countWords(negativeWords)
-    };
-  }
-
-  function parseTechnicalIndicators(text) {
-    const indicators = {};
-    const capture = (label) => {
-      const regex = new RegExp(label + "[^0-9-]*(-?\\d+(?:\\.\\d+)?)", 'i');
-      const m = text.match(regex);
-      if (m) indicators[label.toUpperCase()] = parseFloat(m[1]);
-    };
-    ['RSI', 'MACD', 'SMA', 'EMA'].forEach(capture);
-    return indicators;
   }
 
 
@@ -181,48 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // Render graphical sentiment and technical indicators
       updateSentimentChart(sentimentData.sentimentAnalysis);
       updateTechnicalChart(technicalData.technicalAnalysis);
-      const sentimentCounts = calculateSentimentCounts(sentimentData.sentimentAnalysis || '');
-      const sentimentCtx = document.getElementById('sentiment-graphical').getContext('2d');
-      if (!sentimentChart) {
-        sentimentChart = new Chart(sentimentCtx, {
-          type: 'bar',
-          data: {
-            labels: ['Positive', 'Negative'],
-            datasets: [{
-              label: 'Sentiment Words',
-              data: [sentimentCounts.positive, sentimentCounts.negative],
-              backgroundColor: ['#28a745', '#dc3545']
-            }]
-          },
-          options: { responsive: true, maintainAspectRatio: false }
-        });
-      } else {
-        sentimentChart.data.datasets[0].data = [sentimentCounts.positive, sentimentCounts.negative];
-        sentimentChart.update();
-      }
-
-      const techIndicators = parseTechnicalIndicators(technicalData.technicalAnalysis || '');
-      const techCtx = document.getElementById('technical-graphical').getContext('2d');
-      const techLabels = Object.keys(techIndicators);
-      const techValues = Object.values(techIndicators);
-      if (!technicalChart) {
-        technicalChart = new Chart(techCtx, {
-          type: 'bar',
-          data: {
-            labels: techLabels,
-            datasets: [{
-              label: 'Indicator Values',
-              data: techValues,
-              backgroundColor: '#007bff'
-            }]
-          },
-          options: { responsive: true, maintainAspectRatio: false }
-        });
-      } else {
-        technicalChart.data.labels = techLabels;
-        technicalChart.data.datasets[0].data = techValues;
-        technicalChart.update();
-      }
 
     } catch (error) {
       console.error('Error fetching analysis:', error);
