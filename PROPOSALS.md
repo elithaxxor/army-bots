@@ -170,3 +170,10 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Multi-Window Trend Alerts**: Notify users when price changes over 1h, 4h, or 24h exceed configurable thresholds.
 - **Trend Dashboard Widgets**: Display sparkline charts summarising short and long term trends.
 - **Historical Trend API**: Provide endpoints to query past trend alerts for backtesting and research.
+
+## Complementary Enhancements
+
+- **Exchange Account Import**: Automatically sync balances from popular exchanges to monitor holdings in one place.
+- **Strategy Marketplace**: Allow community members to share trading strategies that can be enabled via configuration.
+- **Cloud Backups**: Periodically save configuration and price history to cloud storage for reliability.
+
