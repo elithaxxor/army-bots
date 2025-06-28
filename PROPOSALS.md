@@ -50,3 +50,4 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+- **Automated Risk Controls**: Implement dynamic stop-loss and take-profit mechanisms that adapt to market volatility.
