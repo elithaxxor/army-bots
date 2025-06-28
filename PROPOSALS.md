@@ -170,3 +170,10 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Multi-Window Trend Alerts**: Notify users when price changes over 1h, 4h, or 24h exceed configurable thresholds.
 - **Trend Dashboard Widgets**: Display sparkline charts summarising short and long term trends.
 - **Historical Trend API**: Provide endpoints to query past trend alerts for backtesting and research.
+
+## Telegram Bot Enhancements
+
+- **Trade History Lookup**: Allow the bot to return recent trades on request.
+- **Custom Order Sizes**: Save preferred trade amounts per symbol for quicker execution.
+- **Backtest Summaries**: Provide a formatted report with key metrics after running `/simulate_backtest`.
+- **Multi-User Support**: Permit multiple authorised user IDs for team-based trading.
