@@ -15,3 +15,9 @@ Contributions and suggestions are welcome.
 - **Docker Deployment**: Provide a container image for easier setup on various systems.
 
 
+
+## Crypto Tracker Bot Ideas
+
+- **Historical Price Storage**: Persist fetched prices to a database for long-term analysis.
+- **Trend Alerts**: Notify users when a coin moves beyond a configurable threshold.
+- **Web Dashboard**: Add a simple interface to view current prices and recent news.
