@@ -6,6 +6,7 @@ module.exports = {
   newsApiKey: process.env.NEWSAPI_KEY,
   discordWebhookUrl: process.env.DISCORD_WEBHOOK_URL,
   telegramBotToken: process.env.TELEGRAM_BOT_TOKEN,
+  // Chat ID for Telegram notifications
   telegramChatId: process.env.TELEGRAM_CHAT_ID,
   slackWebhookUrl: process.env.SLACK_WEBHOOK_URL,
   chatGPTApiKey: process.env.CHATGPT_API_KEY,
@@ -18,4 +19,8 @@ module.exports = {
   storageInterval: parseInt(process.env.STORAGE_INTERVAL) || 300000,
   googleCloudProjectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
   googleCloudAccessToken: process.env.GOOGLE_CLOUD_ACCESS_TOKEN,
+  tiingoApiKey: process.env.TIINGO_API_KEY,
+  cryptoPanickApiKey: process.env.CRYPTO_PANICK_API_KEY,
+  marketeuxApiKey: process.env.MARKETEUX_API_KEY,
+  alphaVantageApiKey: process.env.ALPHAVANTAGE_API_KEY,
 };

@@ -12,7 +12,7 @@ Set the following variables in a `.env` file inside `crypto-tracker-bot/`:
 - `NEWSAPI_KEY` – News API token for news headlines
 - `DISCORD_WEBHOOK_URL` – Discord webhook URL for notifications
 - `TELEGRAM_BOT_TOKEN` – Telegram bot token used to send messages
-- `TELEGRAM_CHAT_ID` – Telegram chat ID where messages will be sent
+- `TELEGRAM_CHAT_ID` – Telegram chat ID where messages will be sent. Set this to the desired chat or channel ID.
 - `SLACK_WEBHOOK_URL` – Slack webhook URL for alerts
 - `TIINGO_API_KEY` – Tiingo API token for additional news data
 - `CRYPTOPANICK_API_KEY` – API key for CryptoPanick news
@@ -23,6 +23,10 @@ Set the following variables in a `.env` file inside `crypto-tracker-bot/`:
 - `STORAGE_INTERVAL` – Interval for persisting price history in milliseconds (optional)
 - `GOOGLE_CLOUD_PROJECT_ID` – Google Cloud project ID used by Vertex AI
 - `GOOGLE_CLOUD_ACCESS_TOKEN` – Access token for the Google Cloud Vertex API
+- `TIINGO_API_KEY` – Tiingo News API key
+- `CRYPTO_PANICK_API_KEY` – CryptoPanick API key
+- `MARKETEUX_API_KEY` – Marketeux news API key
+- `ALPHAVANTAGE_API_KEY` – Alpha Vantage API key for sentiment data
 
 ## Running the Bot
 

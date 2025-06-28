@@ -59,6 +59,11 @@ Contributions and suggestions are welcome.
 - **Automated Risk Alerts**: Monitor portfolio volatility and send warnings when thresholds are exceeded.
 - **API Key Management**: Provide a secure interface to rotate API keys without downtime.
 - **Backtest Report Export**: Allow exporting backtest results to CSV for further analysis.
+- **SMS Alerts**: Integrate Twilio to deliver critical notifications via text message.
+
+- **Unified News Dashboard**: Aggregate headlines from Tiingo, CryptoPanick, Marketeux and Alpha Vantage with sentiment scores.
+- **API Key Health Check**: Add a command-line option that reports missing or expired API keys.
+- **Adaptive Polling**: Automatically adjust fetch intervals based on market volatility.
 
 
 - **Unified Dashboard**: Connect the Node bot and Python dashboard into a single web interface for easier monitoring.
@@ -110,6 +115,7 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Real-Time API Monitoring**: Track response times and failures from data sources to quickly spot connectivity issues.
 - **Voice Notifications**: Leverage text-to-speech services to read important alerts aloud for hands-free updates.
 - **Strategy Backtesting Module**: Use stored historical prices to simulate strategies before risking real capital.
+
 
 ### Additional Enhancements
 
