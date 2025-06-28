@@ -124,6 +124,14 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Telegram Execution Bot**: Allow trades to be triggered via secure Telegram commands for convenience.
 - **Automated Risk Controls**: Implement dynamic stop-loss and take-profit mechanisms that adapt to market volatility.
 
+
+### More Complementary Features
+
+- **Multi-Exchange Support**: Aggregate prices and execute trades across several exchanges for better liquidity.
+- **Custom Alert Rules**: Allow users to define thresholds or indicator-based triggers for personalized notifications.
+- **Portfolio Rebalancing Tools**: Provide automated routines to maintain desired asset allocations.
+- **Community Leaderboard**: Enable optional sharing of performance statistics to foster friendly competition.
+
 ### TradingView Widget Enhancements
 
 - **Interactive TradingView Charts**: Embed TradingView widgets to provide professional-grade charting alongside existing graphs.
@@ -131,3 +139,9 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Multi-Asset Views**: Support displaying multiple charts simultaneously so traders can compare assets side by side.
 - **Customizable Alert Thresholds**: Let users set individual price or indicator levels that trigger notifications.
 - **Light/Dark Theme Toggle**: Offer switchable themes in the dashboard to improve readability in different environments.
+
+## Database Enhancement Ideas
+
+- **Data Pruning Options**: Provide a command or config setting to purge older records, keeping the SQLite database lean.
+- **Indexed Queries**: Add indexes on timestamp and asset symbols to speed up historical lookups.
+- **GraphQL API**: Expose price history through a GraphQL endpoint for more flexible client queries.
