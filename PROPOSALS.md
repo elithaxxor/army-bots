@@ -131,6 +131,7 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Custom Alert Rules**: Allow users to define thresholds or indicator-based triggers for personalized notifications.
 - **Portfolio Rebalancing Tools**: Provide automated routines to maintain desired asset allocations.
 - **Community Leaderboard**: Enable optional sharing of performance statistics to foster friendly competition.
+- **Real-Time Performance Dashboard**: Visualize active alerts and portfolio metrics in a live web interface.
 
 ### TradingView Widget Enhancements
 
