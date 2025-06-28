@@ -44,5 +44,17 @@ Contributions and suggestions are welcome.
 - **Portfolio Visualisation**: Track holdings over time with charts and profit/loss metrics.
 
 
+
+- **SMS Notifications**: Integrate with a service like Twilio to deliver urgent price or news alerts via text messages.
+- **Custom Polling Intervals**: Allow users to specify different polling rates per coin or news source to optimise API usage.
+- **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
+- **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
 - **SMS Alerts**: Integrate Twilio to deliver critical notifications via text message.
+
+### Additional Enhancements
+
+- **Order Book Visualisation**: Display real-time depth charts so users can monitor liquidity changes.
+- **Strategy Explorer**: Provide a sandbox to test various machine learning models and compare their performance.
+- **Telegram Execution Bot**: Allow trades to be triggered via secure Telegram commands for convenience.
+- **Automated Risk Controls**: Implement dynamic stop-loss and take-profit mechanisms that adapt to market volatility.
