@@ -18,3 +18,9 @@ Contributions and suggestions are welcome.
 - **Real-Time Risk Metrics**: Display VaR and drawdown statistics to help traders monitor portfolio risk.
 
 
+
+## Crypto Tracker Bot Ideas
+
+- **Historical Price Storage**: Persist fetched prices to a database for long-term analysis.
+- **Trend Alerts**: Notify users when a coin moves beyond a configurable threshold.
+- **Web Dashboard**: Add a simple interface to view current prices and recent news.
