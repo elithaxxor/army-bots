@@ -43,6 +43,8 @@ Contributions and suggestions are welcome.
 - **Multi-Exchange Aggregation**: Fetch prices from several exchanges to improve accuracy.
 - **Portfolio Visualisation**: Track holdings over time with charts and profit/loss metrics.
 
+- **Volume Heatmaps**: Visualize trading volume across exchanges to quickly spot shifts in momentum.
+
 
 
 - **SMS Notifications**: Integrate with a service like Twilio to deliver urgent price or news alerts via text messages.
@@ -53,3 +55,11 @@ Contributions and suggestions are welcome.
 - **Unified News Dashboard**: Aggregate headlines from Tiingo, CryptoPanick, Marketeux and Alpha Vantage with sentiment scores.
 - **API Key Health Check**: Add a command-line option that reports missing or expired API keys.
 - **Adaptive Polling**: Automatically adjust fetch intervals based on market volatility.
+
+
+### Additional Enhancements
+
+- **Order Book Visualisation**: Display real-time depth charts so users can monitor liquidity changes.
+- **Strategy Explorer**: Provide a sandbox to test various machine learning models and compare their performance.
+- **Telegram Execution Bot**: Allow trades to be triggered via secure Telegram commands for convenience.
+- **Automated Risk Controls**: Implement dynamic stop-loss and take-profit mechanisms that adapt to market volatility.
