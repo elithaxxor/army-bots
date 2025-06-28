@@ -8,7 +8,7 @@ Set the following variables in a `.env` file inside `crypto-tracker-bot/`:
 
 - `CHATGPT_API_KEY` – API key for interacting with ChatGPT
 - `POLYGON_API_KEY` – Polygon.io API key for price data
-- `FINHUB_API_KEY` – Key for Finhub data
+- `FINNHUB_API_KEY` – Key for Finhub data
 - `NEWSAPI_KEY` – News API token for news headlines
 - `DISCORD_WEBHOOK_URL` – Discord webhook URL for notifications
 - `TELEGRAM_BOT_TOKEN` – Telegram bot token used to send messages

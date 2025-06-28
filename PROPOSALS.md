@@ -171,6 +171,14 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Trend Dashboard Widgets**: Display sparkline charts summarising short and long term trends.
 - **Historical Trend API**: Provide endpoints to query past trend alerts for backtesting and research.
 
+
+## Complementary Enhancements
+
+- **Exchange Account Import**: Automatically sync balances from popular exchanges to monitor holdings in one place.
+- **Strategy Marketplace**: Allow community members to share trading strategies that can be enabled via configuration.
+- **Cloud Backups**: Periodically save configuration and price history to cloud storage for reliability.
+
+
 ### Complementary Feature Proposal
 
 - **DeFi Yield Aggregation**: Track yields from DeFi protocols and include them in performance reports.
@@ -187,3 +195,4 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Configurable Port**: Allow the HTTP server to respect the `PORT` environment variable so deployments can choose a different listening port.
 - **Health Check Endpoint**: Add a simple `/ping` route that returns a 200 status for container orchestrators.
 - **Graceful Shutdown**: Handle SIGTERM and SIGINT signals to close open connections cleanly before exiting.
+
