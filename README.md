@@ -51,6 +51,11 @@ pip install -r requirements.txt
 The dashboard includes a simple Telegram bot. Configure a bot token and the
 allowed user ID then run the script:
 
+
+### Node
+
+Install dependencies in the bot directory, then run the test suite:
+
 ```bash
 export TELEGRAM_BOT_TOKEN=YOUR_TOKEN
 export TELEGRAM_USER_ID=123456789
@@ -66,6 +71,7 @@ to trigger actions.
 
 Install dependencies in the bot directory then run the Jest suite:
 
+
 ```bash
 cd crypto-tracker-bot
 npm install
@@ -73,6 +79,15 @@ npm test
 ```
 
 ### Python
+
+
+Create a virtual environment, install the requirements, and execute the tests:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+pytest
 
 Install the Python requirements (a virtual environment is recommended) and run the dashboard tests from the repository root:
 
