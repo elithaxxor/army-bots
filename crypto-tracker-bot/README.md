@@ -56,3 +56,13 @@ npm test
 
 Make sure dependencies are installed before running tests.
 
+
+## Weekly Market Reports
+
+The optional `weeklyReport.js` script compiles a short summary of recent prices and sentiment. By default it runs every Monday at 9 AM using `node-schedule`. Set the `WEEKLY_REPORT_CRON` environment variable to customise the schedule with a standard cron expression.
+
+Run the report manually with:
+
+```bash
+npm run weekly-report
+```

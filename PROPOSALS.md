@@ -130,6 +130,7 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Multi-Exchange Support**: Aggregate prices and execute trades across several exchanges for better liquidity.
 - **Custom Alert Rules**: Allow users to define thresholds or indicator-based triggers for personalized notifications.
 - **Portfolio Rebalancing Tools**: Provide automated routines to maintain desired asset allocations.
+- **Automated Weekly Reports**: Compile and deliver a summary of prices and sentiment via Slack or email.
 - **Community Leaderboard**: Enable optional sharing of performance statistics to foster friendly competition.
 - **Real-Time Performance Dashboard**: Visualize active alerts and portfolio metrics in a live web interface.
 
