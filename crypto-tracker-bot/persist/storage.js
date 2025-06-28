@@ -39,4 +39,16 @@ function getPriceHistory() {
   }
 }
 
-module.exports = { initDatabase, insertPriceHistory, getPriceHistory };
+function getLatestPrice() {
+  try {
+    const database = initDatabase();
+    const row = database.prepare('SELECT timestamp, prices FROM price_history ORDER BY id DESC LIMIT 1').get();
+    if (!row) return null;
+    return { timestamp: row.timestamp, data: JSON.parse(row.prices) };
+  } catch (error) {
+    logger.error('Failed to read latest price:', error);
+    throw error;
+  }
+}
+
+module.exports = { initDatabase, insertPriceHistory, getPriceHistory, getLatestPrice };

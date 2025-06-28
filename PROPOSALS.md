@@ -154,3 +154,9 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Trade Scheduler**: Allow strategies to execute automatically at predefined intervals.
 - **Performance Metrics**: Report Sharpe ratio and max drawdown to help evaluate trading strategies.
 - **Mobile Companion App**: Provide a lightweight app for monitoring and executing trades on the go.
+
+### Complementary Features for Real-Time Data
+
+- **User-Configurable Streams**: Allow clients to subscribe only to the coins they care about to reduce bandwidth usage.
+- **Historical Snapshot Service**: Periodically archive real-time data into static JSON files for quick offline review.
+- **Alert WebSockets**: Broadcast threshold alerts over Socket.IO so the dashboard can display pop-up notifications in real time.
