@@ -56,6 +56,12 @@ Contributions and suggestions are welcome.
 - **Staking Yield Tracker**: Monitor staking rewards for supported assets to help users optimize yield strategies.
 - **AI-Based Signals**: Explore machine learning models that combine price action and sentiment to generate trading signals.
 
+## Further Feature Ideas
+
+- **Integrated Backtesting UI**: Provide a graphical interface where users can configure strategies and visualize backtest results directly in the dashboard.
+- **Cloud Deployment Templates**: Offer Terraform or Docker Compose examples so the entire stack can be deployed easily to cloud providers.
+- **User Accounts & Permissions**: Add optional authentication with role-based permissions to restrict access to trading features.
+- **Automated Parameter Tuning**: Leverage optimization libraries to search over strategy parameters for the best historical performance.
 ## Additional Feature Proposal
 
 To further enhance the toolkit, the following ideas could be explored:
