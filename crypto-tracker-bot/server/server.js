@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
+const http = require('http');
+const { Server } = require('socket.io');
 const imageAnalysis = require('../technicalIndicators/imageAnalysis');
 const storage = require('../persist/storage');
 const logger = require('../utils/logger');
@@ -11,6 +13,12 @@ storage.initDatabase();
 
 const app = express();
 const port = 3000;
+const httpServer = http.createServer(app);
+const io = new Server(httpServer);
+
+io.on('connection', () => {
+  logger.info('Socket.IO client connected');
+});
 
 // Multer setup for image uploads
 // Ensure uploads directory exists
@@ -144,6 +152,18 @@ app.get('/api/sentiment-analysis', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+// Emit latest prices to connected clients every 10 seconds
+setInterval(() => {
+  try {
+    const latest = storage.getLatestPrice();
+    if (latest) {
+      io.emit('prices', latest);
+    }
+  } catch (error) {
+    logger.error('Error emitting prices:', error);
+  }
+}, 10000);
+
+httpServer.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });

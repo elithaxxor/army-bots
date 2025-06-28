@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const ticker = document.getElementById('ticker');
   let sentimentChart;
   let technicalChart;
+  const socket = io();
+
+  socket.on('prices', (payload) => {
+    const latest = payload.data || payload;
+    handlePrices(latest);
+  });
   // Initialize TradingView widget
   new TradingView.widget({
     container_id: "tradingview_chart",
@@ -29,21 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
     news: ["headlines"],
   });
 
-  // Function to update live price and notifications
+  function handlePrices(latest) {
+    if (!latest) return;
+    if (latest.BTC) {
+      livePriceSpan.textContent = `BTC: $${latest.BTC.toFixed(2)}`;
+      notificationLeft.textContent = `BTC Price: $${latest.BTC.toFixed(2)}`;
+    }
+    if (latest.ETH) {
+      notificationRight.textContent = `ETH Price: $${latest.ETH.toFixed(2)}`;
+    }
+    updateTicker(latest);
+  }
+
+  // Function to update live price and notifications via REST
   async function updateLiveData() {
     try {
       const response = await fetch('/api/price-history');
       const data = await response.json();
       if (data.history && data.history.length > 0) {
         const latest = data.history[data.history.length - 1].data;
-        if (latest.BTC) {
-          livePriceSpan.textContent = `BTC: $${latest.BTC.toFixed(2)}`;
-          notificationLeft.textContent = `BTC Price: $${latest.BTC.toFixed(2)}`;
-        }
-        if (latest.ETH) {
-          notificationRight.textContent = `ETH Price: $${latest.ETH.toFixed(2)}`;
-        }
-        updateTicker(latest);
+        handlePrices(latest);
       }
     } catch (error) {
       console.error('Error updating live data:', error);
