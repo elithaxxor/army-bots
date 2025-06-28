@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const notificationLeft = document.getElementById('notification-left');
   const notificationRight = document.getElementById('notification-right');
   const ticker = document.getElementById('ticker');
+  let sentimentChart;
+  let technicalChart;
   // Initialize TradingView widget
   new TradingView.widget({
     container_id: "tradingview_chart",
@@ -62,6 +64,84 @@ document.addEventListener('DOMContentLoaded', () => {
     tickerIndex++;
   }
 
+  // Charts for sentiment and technical analysis
+  let sentimentChart;
+  let technicalChart;
+
+  function updateSentimentChart(text) {
+    const positive = (text.match(/positive|bullish/gi) || []).length;
+    const negative = (text.match(/negative|bearish/gi) || []).length;
+    const neutral = Math.max(0, text.length ? text.split(/\s+/).length - positive - negative : 0);
+    const ctx = document.getElementById('sentiment-graphical').getContext('2d');
+    if (!sentimentChart) {
+      sentimentChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Positive', 'Negative', 'Neutral'],
+          datasets: [{
+            label: 'Sentiment',
+            backgroundColor: ['#28a745', '#dc3545', '#6c757d'],
+            data: [positive, negative, neutral]
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+    } else {
+      sentimentChart.data.datasets[0].data = [positive, negative, neutral];
+      sentimentChart.update();
+    }
+  }
+
+  function updateTechnicalChart(text) {
+    const rsi = parseFloat((text.match(/RSI[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
+    const macd = parseFloat((text.match(/MACD[^0-9-]*([-0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
+    const sma = parseFloat((text.match(/SMA[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
+    const ema = parseFloat((text.match(/EMA[^0-9]*([0-9]+(?:\.[0-9]+)?)/i) || [])[1]) || 0;
+    const ctx = document.getElementById('technical-graphical').getContext('2d');
+    if (!technicalChart) {
+      technicalChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['RSI', 'MACD', 'SMA', 'EMA'],
+          datasets: [{
+            label: 'Indicators',
+            backgroundColor: 'rgba(54,162,235,0.2)',
+            borderColor: 'rgba(54,162,235,1)',
+            data: [rsi, macd, sma, ema]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: { r: { beginAtZero: true, max: 100 } }
+        }
+      });
+    } else {
+      technicalChart.data.datasets[0].data = [rsi, macd, sma, ema];
+      technicalChart.update();
+    }
+  function calculateSentimentCounts(text) {
+    const positiveWords = ['bullish', 'positive', 'buy', 'growth', 'uptrend'];
+    const negativeWords = ['bearish', 'negative', 'sell', 'downtrend', 'decline'];
+    const lower = text.toLowerCase();
+    const countWords = (words) => words.reduce((acc, w) => acc + (lower.match(new RegExp(w, 'g')) || []).length, 0);
+    return {
+      positive: countWords(positiveWords),
+      negative: countWords(negativeWords)
+    };
+  }
+
+  function parseTechnicalIndicators(text) {
+    const indicators = {};
+    const capture = (label) => {
+      const regex = new RegExp(label + "[^0-9-]*(-?\\d+(?:\\.\\d+)?)", 'i');
+      const m = text.match(regex);
+      if (m) indicators[label.toUpperCase()] = parseFloat(m[1]);
+    };
+    ['RSI', 'MACD', 'SMA', 'EMA'].forEach(capture);
+    return indicators;
+  }
+
 
   // Toggle views
   toAnalysisBtn.addEventListener('click', () => {
@@ -98,9 +178,51 @@ document.addEventListener('DOMContentLoaded', () => {
       enhancedSentimentDiv.style.fontWeight = 'bold';
       document.getElementById('sentiment-text').appendChild(enhancedSentimentDiv);
 
-      // TODO: Render graphical sentiment and technical indicators here
-      document.getElementById('sentiment-graphical').textContent = '[Graphical sentiment visualization coming soon]';
-      document.getElementById('technical-graphical').textContent = '[Graphical technical indicators coming soon]';
+      // Render graphical sentiment and technical indicators
+      updateSentimentChart(sentimentData.sentimentAnalysis);
+      updateTechnicalChart(technicalData.technicalAnalysis);
+      const sentimentCounts = calculateSentimentCounts(sentimentData.sentimentAnalysis || '');
+      const sentimentCtx = document.getElementById('sentiment-graphical').getContext('2d');
+      if (!sentimentChart) {
+        sentimentChart = new Chart(sentimentCtx, {
+          type: 'bar',
+          data: {
+            labels: ['Positive', 'Negative'],
+            datasets: [{
+              label: 'Sentiment Words',
+              data: [sentimentCounts.positive, sentimentCounts.negative],
+              backgroundColor: ['#28a745', '#dc3545']
+            }]
+          },
+          options: { responsive: true, maintainAspectRatio: false }
+        });
+      } else {
+        sentimentChart.data.datasets[0].data = [sentimentCounts.positive, sentimentCounts.negative];
+        sentimentChart.update();
+      }
+
+      const techIndicators = parseTechnicalIndicators(technicalData.technicalAnalysis || '');
+      const techCtx = document.getElementById('technical-graphical').getContext('2d');
+      const techLabels = Object.keys(techIndicators);
+      const techValues = Object.values(techIndicators);
+      if (!technicalChart) {
+        technicalChart = new Chart(techCtx, {
+          type: 'bar',
+          data: {
+            labels: techLabels,
+            datasets: [{
+              label: 'Indicator Values',
+              data: techValues,
+              backgroundColor: '#007bff'
+            }]
+          },
+          options: { responsive: true, maintainAspectRatio: false }
+        });
+      } else {
+        technicalChart.data.labels = techLabels;
+        technicalChart.data.datasets[0].data = techValues;
+        technicalChart.update();
+      }
 
     } catch (error) {
       console.error('Error fetching analysis:', error);
