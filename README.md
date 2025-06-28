@@ -1,92 +1,61 @@
+# Crypto Tracker Bot and Trading Dashboard
 
----
+This repository contains two complementary projects for monitoring the cryptocurrency market:
 
-# User Workspace
+1. **Crypto Tracker Bot** – a Node.js bot that fetches prices and news, then sends alerts to Slack, Discord, or Telegram. Optional endpoints provide technical and sentiment analysis.
+2. **Trading Dashboard** – a Python/Streamlit application in `trading_bot/` for interactive charting, backtesting, and a basic machine learning signal.
 
-## Project Overview
-User Workspace is a Node.js application designed to handle user requests and file uploads with ease. Leveraging the Express framework, this application provides a robust backend that can manage various user-related functionalities while also integrating third-party libraries for handling file operations and environment configurations.
+## Installing Dependencies
 
-## Installation
+### Node Modules
+Navigate to `crypto-tracker-bot/` and install packages:
 
-To set up the project, follow these steps:
-
-1. **Clone the repository** to your local machine:
-   ```bash
-   git clone https://github.com/username/user-workspace.git
-   cd user-workspace
-   ```
-
-2. **Install the dependencies** using npm:
-   ```bash
-   npm install
-   ```
-
-3. **Create a `.env` file** in the root directory to configure environment variables if necessary.
-
-## Usage
-
-To start the application, run the following command:
 ```bash
-npm start
-```
-This will launch the server on the default port (usually `3000`). You can access the app at `http://localhost:3000`.
-
-## Features
-
-- **File Uploads**: Utilizes `multer` for handling multipart/form-data, allowing users to upload files easily.
-- **RESTful API**: Structure your application to handle different user-related API requests seamlessly.
-- **Environment Variables**: Use `dotenv` to manage configurations securely.
-- **Async HTTP Requests**: Make requests to external APIs using the `axios` library.
-  
-## Dependencies
-
-This project uses the following primary dependencies:
-
-- **axios**: ^1.9.0 - Promise-based HTTP client for the browser and Node.js.
-- **dotenv**: ^16.5.0 - Module to load environment variables from a `.env` file.
-- **express**: ^5.1.0 - Fast, unopinionated, minimalist web framework for Node.js.
-- **multer**: ^2.0.0 - Middleware for handling `multipart/form-data`, primarily used for uploading files.
-
-## Project Structure
-
-Here’s a brief overview of the project's directory structure:
-
-```
-user-workspace/
-├── .env               # Environment configuration file
-├── package.json       # Project metadata and dependencies
-├── package-lock.json  # Locked versions of dependencies
-├── server.js          # Entry point for the server
-└── routes/            # Directory containing route definitions
-    ├── userRoutes.js  # User-related API routes
-    └── uploadRoutes.js # File upload related routes
+cd crypto-tracker-bot
+npm install
 ```
 
-**Note:** Make sure to configure your routes and middleware as per the specific requirements of your application.
-
----
-
-For any additional questions or issues, please feel free to open an issue or contact the maintainers of this repository.
-
-## Python Trading Dashboard
-
-A Python-based crypto trading dashboard is provided under `trading_bot/`. It uses `ccxt` to fetch data, calculates technical indicators, and displays an interactive web interface using Streamlit.
-
-### Setup
-
-Install Python dependencies (preferably in a virtual environment):
+### Python Packages
+Install the dashboard requirements (preferably inside a virtual environment):
 
 ```bash
 pip install -r requirements.txt
-pip install ccxt pandas pandas_ta scikit-learn streamlit plotly transformers
 ```
 
-### Running the Dashboard
+## Available Scripts
 
-From the repository root, execute:
+- `npm start` – start the crypto tracker bot.
+- `npm run server` – launch the optional analysis server.
+- `auto_install_and_run.sh` – install Node modules and run both the bot and server.
+- `streamlit run trading_bot/app.py` – start the trading dashboard.
+
+## Running Tests
+
+### Node Tests
+
+Run Jest-based tests from `crypto-tracker-bot/`:
 
 ```bash
-streamlit run trading_bot/app.py
+npm test
 ```
 
-The dashboard fetches real-time market data, displays technical analysis, sentiment, and a simple machine learning signal. You can also run a backtest from the sidebar.
+### Python Tests
+
+Run the dashboard tests with `pytest` from the repository root:
+
+```bash
+PYTHONPATH=. pytest
+```
+
+Both suites should pass once the respective dependencies are installed.
+
+## Directory Overview
+
+```
+crypto-tracker-bot/   # Node.js bot, server, and tests
+trading_bot/          # Streamlit dashboard and Python tests
+auto_install_and_run.sh
+requirements.txt      # Python dependencies
+```
+
+For more feature ideas, see `PROPOSALS.md`.

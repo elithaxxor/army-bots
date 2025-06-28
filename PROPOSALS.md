@@ -50,3 +50,7 @@ Contributions and suggestions are welcome.
 - **News Sentiment Analysis**: Score fetched articles for positive or negative sentiment and include the rating in notifications.
 - **Interactive Charts**: Provide a lightweight dashboard showing historical price trends using Chart.js.
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+- **Unified Dashboard**: Connect the Node bot and Python dashboard into a single web interface for easier monitoring.
+- **API Authentication**: Protect the analysis server with token-based authentication.
+- **CSV Export**: Allow backtest results to be downloaded for offline review.
+- **Mobile Push Notifications**: Send alerts through services like Firebase or Pushover.
