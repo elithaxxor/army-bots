@@ -45,3 +45,4 @@ Contributions and suggestions are welcome.
 
 
 - **Multi-Timeframe Analysis**: Support indicators calculated on different timeframes for more robust signal generation.
+- **Automated Risk Controls**: Implement dynamic stop-loss and take-profit mechanisms that adapt to market volatility.
