@@ -26,7 +26,7 @@ pip install -r requirements.txt
 - `npm run server` – launch the optional analysis server
 - `auto_install_and_run.sh` – install Node modules and run both the bot and server
 - `streamlit run trading_bot/app.py` – start the trading dashboard
-- `streamlit run trading_bot/strategy_explorer.py` – explore ML models on historical data
+- `streamlit run trading_bot/strategy_explorer.py` – explore ML models and view cross-validated performance
 
 ## Running
 
@@ -42,12 +42,13 @@ pip install -r requirements.txt
   ```bash
   streamlit run trading_bot/app.py
   ```
-- **Run the strategy explorer:**
+ - **Run the strategy explorer:**
   ```bash
   streamlit run trading_bot/strategy_explorer.py
   ```
-  This page supports hyperparameter tuning, feature-importance charts,
-  and persists evaluation results for later review.
+  This page supports hyperparameter tuning, cross‑validated accuracy,
+  feature-importance charts, and persists evaluation results for later
+  review.
 
 - **Quick start both bot and server:**
   ```bash
