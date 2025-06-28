@@ -8,6 +8,9 @@ const storage = require('./persist/storage');
 const logger = require('./utils/logger');
 const sentimentAnalysis = require('./technicalIndicators/sentimentAnalysis');
 
+// initialize the sqlite database
+storage.initDatabase();
+
 let previousPrices = {};
 
 // User customizable alert settings per asset
@@ -46,7 +49,7 @@ async function checkPrices() {
       }
       previousPrices[symbol] = currentPrice;
     }
-    await storage.persistPriceData(prices);
+    await storage.insertPriceHistory(prices);
   } catch (error) {
     logger.error("Error checking prices:", error);
   }
@@ -56,7 +59,7 @@ setInterval(checkPrices, config.pollInterval);
 
 setInterval(async () => {
   try {
-    await storage.persistPriceData(previousPrices);
+    await storage.insertPriceHistory(previousPrices);
     logger.info("Periodic data persisted.");
   } catch (error) {
     logger.error("Error in periodic persistence:", error);

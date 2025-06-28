@@ -6,6 +6,9 @@ const imageAnalysis = require('../technicalIndicators/imageAnalysis');
 const storage = require('../persist/storage');
 const logger = require('../utils/logger');
 
+// initialize sqlite database
+storage.initDatabase();
+
 const app = express();
 const port = 3000;
 

@@ -1,39 +1,42 @@
-const fs = require('fs');
 const path = require('path');
+const Database = require('better-sqlite3');
 const logger = require('../utils/logger');
 
-const storageFile = path.join(__dirname, 'priceHistory.json');
+let db;
 
-async function persistPriceData(data) {
+function initDatabase() {
+  if (db) return db;
+  const dbPath = path.join(__dirname, 'priceHistory.db');
+  db = new Database(dbPath);
+  db.pragma('journal_mode = WAL');
+  db.prepare(`CREATE TABLE IF NOT EXISTS price_history (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      timestamp TEXT NOT NULL,
+      prices TEXT NOT NULL
+  )`).run();
+  return db;
+}
+
+function insertPriceHistory(prices) {
   try {
-    let history = [];
-    if (fs.existsSync(storageFile)) {
-      const fileData = fs.readFileSync(storageFile);
-      history = JSON.parse(fileData);
-    }
-    // Append new data with timestamp
-    history.push({
-      timestamp: new Date().toISOString(),
-      data
-    });
-    fs.writeFileSync(storageFile, JSON.stringify(history, null, 2));
+    const database = initDatabase();
+    const stmt = database.prepare('INSERT INTO price_history (timestamp, prices) VALUES (?, ?)');
+    stmt.run(new Date().toISOString(), JSON.stringify(prices));
   } catch (error) {
-    logger.error("Failed to persist data:", error);
+    logger.error('Failed to insert price history:', error);
     throw error;
   }
 }
 
 function getPriceHistory() {
   try {
-    if (fs.existsSync(storageFile)) {
-      const fileData = fs.readFileSync(storageFile);
-      return JSON.parse(fileData);
-    }
-    return [];
+    const database = initDatabase();
+    const rows = database.prepare('SELECT timestamp, prices FROM price_history ORDER BY id').all();
+    return rows.map(row => ({ timestamp: row.timestamp, data: JSON.parse(row.prices) }));
   } catch (error) {
-    logger.error("Failed to read price history:", error);
+    logger.error('Failed to read price history:', error);
     throw error;
   }
 }
 
-module.exports = { persistPriceData, getPriceHistory };
+module.exports = { initDatabase, insertPriceHistory, getPriceHistory };
