@@ -201,3 +201,9 @@ To further enhance the toolkit, the following ideas could be explored:
 - **Tabbed Charts**: Display multiple trading pairs at once using tabs to quickly compare assets.
 - **Cached Indicator Data**: Reuse indicator calculations between refreshes to minimise API usage.
 
+
+### Additional Feature Proposals
+
+- **Feature Importance Charts**: Visualize which indicators contribute most to a model's predictions.
+- **Hyperparameter Tuning Tools**: Provide automated search over model parameters with cross-validation.
+- **Result Persistence**: Save backtest and model evaluation results to a local database for later comparison.

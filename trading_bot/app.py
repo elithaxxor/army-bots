@@ -95,5 +95,40 @@ for sym, tab in zip(symbols, tabs):
         col1.write(f"Sentiment score: {sentiment_score}")
         col2.write(f"Model long probability: {model_prob}")
 
+data = load_data()
+current_price = fetcher.get_current_price(symbol)
+
+if run_backtest:
+    report = backtest(data, report_dir="trading_bot/reports")
+    st.sidebar.write(f"Backtest balance: {report.final_balance:.2f}")
+    st.sidebar.write(f"Profit: {report.profit:.2f}")
+    st.sidebar.write(f"Max DD: {report.max_drawdown:.2%}")
+    st.sidebar.write(f"Trades: {report.num_trades}")
+    if report.figure_path:
+        st.image(report.figure_path)
+
+sentiment_score = analyze_sentiment([])
+model_prob = model.predict(data)
+
+st.metric("Current Price", current_price)
+fig = go.Figure(data=[go.Candlestick(x=data['timestamp'],
+                open=data['open'], high=data['high'],
+                low=data['low'], close=data['close'])])
+fig.add_trace(go.Scatter(x=data['timestamp'], y=data['vwap'], name='VWAP'))
+fig.add_trace(go.Scatter(x=data['timestamp'], y=data['ema'], name='EMA'))
+fig.add_trace(go.Scatter(x=data['timestamp'], y=data['sma'], name='SMA'))
+fig.add_trace(go.Scatter(x=data['timestamp'], y=data['support'], name='Support', line=dict(dash='dot')))
+fig.add_trace(go.Scatter(x=data['timestamp'], y=data['resistance'], name='Resistance', line=dict(dash='dot')))
+fractals_up = data[data['fractal_up']]
+fractals_down = data[data['fractal_down']]
+fig.add_trace(go.Scatter(x=fractals_up['timestamp'], y=fractals_up['high'], mode='markers', marker_symbol='triangle-up', marker_color='green', name='Fractal Up'))
+fig.add_trace(go.Scatter(x=fractals_down['timestamp'], y=fractals_down['low'], mode='markers', marker_symbol='triangle-down', marker_color='red', name='Fractal Down'))
+
+st.plotly_chart(fig, use_container_width=True)
+
+col1, col2 = st.columns(2)
+col1.write(f"Sentiment score: {sentiment_score}")
+col2.write(f"Model long probability: {model_prob}")
+
 if refresh_btn:
     st.experimental_rerun()
