@@ -46,6 +46,20 @@ pip install -r requirements.txt
   ./auto_install_and_run.sh
   ```
 
+## Telegram Bot
+
+The dashboard includes a simple Telegram bot. Configure a bot token and the
+allowed user ID then run the script:
+
+```bash
+export TELEGRAM_BOT_TOKEN=YOUR_TOKEN
+export TELEGRAM_USER_ID=123456789
+python trading_bot/telegram_bot.py
+```
+
+Within Telegram you can issue `/buy`, `/sell`, and `/simulate_backtest` commands
+to trigger actions.
+
 ## Running Tests
 
 ### Node Tests
